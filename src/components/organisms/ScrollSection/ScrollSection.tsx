@@ -10,11 +10,13 @@ interface Props {
   section: ContentSection;
 }
 
+// Mobile: single-column full-width with edge padding (no canvas split, no max-w cap).
+// md+: original half/half layout where canvas occupies the opposite side.
 const ALIGNMENT_CLASSES = {
-  left: "pl-8 pr-[55vw] md:pl-12 lg:pl-20 xl:pl-28 [&>div]:max-w-[42vw]",
+  left: "px-6 md:pr-[55vw] md:pl-12 lg:pl-20 xl:pl-28 md:[&>div]:max-w-[42vw]",
   right:
-    "pl-[55vw] pr-8 md:pr-12 lg:pr-20 xl:pr-28 [&>div]:max-w-[42vw] [&>div]:ml-auto",
-  center: "px-8 text-center md:px-12 lg:px-20",
+    "px-6 md:pl-[55vw] md:pr-12 lg:pr-20 xl:pr-28 md:[&>div]:max-w-[42vw] md:[&>div]:ml-auto",
+  center: "px-6 text-center md:px-12 lg:px-20",
 } as const;
 
 export default function ScrollSection({ section }: Props) {

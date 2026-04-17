@@ -16,9 +16,9 @@ const bodyFont = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Vivid Geeks — Scroll-driven motion",
+  title: "Vivid Geeks Digital — Search, Growth, Creative, Infrastructure, Retention",
   description:
-    "A premium scroll-driven product experience, frame by frame, by Vivid Geeks.",
+    "Vivid Geeks Digital builds systems that turn clicks into revenue — SEO, AEO, paid media, creative, web, CRM, and retention under one roof.",
 };
 
 export default function RootLayout({

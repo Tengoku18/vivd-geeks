@@ -75,9 +75,9 @@ export default function CtaSection({ section }: Props) {
   return (
     <section
       ref={ref}
-      className="absolute z-[15] w-full -translate-y-1/2 pr-[55vw] pl-8 max-md:px-6 md:pl-12 lg:pl-20 xl:pl-28"
+      className="absolute z-[15] w-full -translate-y-1/2 px-6 md:pr-[55vw] md:pl-12 lg:pl-20 xl:pl-28"
     >
-      <div className="flex max-w-[42vw] flex-col gap-2 max-md:max-w-full">
+      <div className="flex w-full flex-col gap-2 md:max-w-[42vw]">
         <SectionHeader label={section.label} heading={section.heading} />
         <Typography variant="body" className="section-body mt-4 max-w-md">
           {section.body}

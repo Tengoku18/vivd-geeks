@@ -26,7 +26,8 @@ export default function DarkOverlay({ enter, leave }: Props) {
 
       const eP = enter / 100;
       const lP = leave / 100;
-      const fade = 0.04;
+      // Widened fade for smoother transitions on fast mobile scroll.
+      const fade = 0.06;
 
       trigger = ScrollTrigger.create({
         trigger: scrollEl,
@@ -57,7 +58,7 @@ export default function DarkOverlay({ enter, leave }: Props) {
   return (
     <div
       ref={ref}
-      className="pointer-events-none fixed inset-0 z-[8] bg-black opacity-0"
+      className="pointer-events-none fixed top-0 left-0 z-[8] h-dvh w-screen bg-black opacity-0 transform-gpu will-change-[opacity]"
       aria-hidden="true"
     />
   );

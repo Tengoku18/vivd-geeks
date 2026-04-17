@@ -14,6 +14,7 @@ import SiteHeader from "@/components/organisms/SiteHeader/SiteHeader";
 import HeroSection from "@/components/organisms/HeroSection/HeroSection";
 import CanvasScene from "@/components/organisms/CanvasScene/CanvasScene";
 import DarkOverlay from "@/components/organisms/DarkOverlay/DarkOverlay";
+import GlassOverlay from "@/components/organisms/GlassOverlay/GlassOverlay";
 import MarqueeText from "@/components/organisms/MarqueeText/MarqueeText";
 import ScrollSection from "@/components/organisms/ScrollSection/ScrollSection";
 import StatsSection from "@/components/organisms/StatsSection/StatsSection";
@@ -35,6 +36,7 @@ export default function Home() {
       <SiteHeader />
       <HeroSection config={HERO_CONFIG} />
       <CanvasScene onLoadProgress={setLoadProgress} />
+      <GlassOverlay enter={18} leave={100} />
       <DarkOverlay enter={overlayRange.enter} leave={overlayRange.leave} />
       {/* MarqueeText is a fixed overlay — it is NOT part of SECTIONS_CONFIG */}
       <MarqueeText

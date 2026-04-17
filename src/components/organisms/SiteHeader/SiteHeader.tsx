@@ -17,7 +17,7 @@ export default function SiteHeader() {
       id="site-header"
       className="fixed inset-x-0 top-0 z-50 transition-transform duration-400 ease-in-out"
     >
-      <div className="mx-auto flex max-w-400 items-center justify-between px-8 py-6 md:px-12 lg:px-20 xl:px-28">
+      <div className="flex w-full items-center justify-between px-6 py-6 md:px-12 lg:px-20 xl:px-28">
         <span className="font-display text-text-on-dark text-2xl tracking-[0.15em] uppercase">
           Vivid Geeks
         </span>
@@ -26,7 +26,7 @@ export default function SiteHeader() {
             <a
               key={link.href}
               href={link.href}
-              className="font-body hover:text-text-on-dark text-[0.7rem] tracking-[0.25em] text-white/45 uppercase transition-colors duration-200"
+              className="font-body hover:text-text-on-dark text-[0.8rem] tracking-[0.25em] text-white/45 uppercase transition-colors duration-200"
             >
               {link.label}
             </a>

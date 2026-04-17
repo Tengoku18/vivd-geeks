@@ -7,6 +7,7 @@
 
 import type { HeroConfig } from "@/config/sections";
 import { Typography } from "@/components/atoms/Typography";
+import HeroPlayground from "@/components/organisms/HeroPlayground/HeroPlayground";
 
 interface Props {
   config: HeroConfig;
@@ -18,10 +19,14 @@ export default function HeroSection({ config }: Props) {
     // document.getElementById("hero-section"). Keep these in sync.
     <section
       id="hero-section"
-      className="bg-bg-dark fixed inset-0 z-20 flex flex-col justify-end px-8 pb-20 transition-opacity duration-75 ease-linear md:px-12 md:pb-24 lg:px-20 xl:px-28"
+      className="bg-bg-dark fixed inset-0 z-20 flex flex-col items-start justify-center transition-opacity duration-75 ease-linear"
     >
-      <div className="mx-auto flex w-full max-w-400 flex-col">
-        <Typography variant="label" className="mb-4">
+      {/* Interactive particle network — desktop only, occupies the right
+          portion of the hero. Desktop heading still has ~55% width on the
+          left, which fits "WORTH SCROLLING." comfortably at clamp() sizes. */}
+      <HeroPlayground className="pointer-events-auto absolute inset-y-0 right-0 hidden w-[48%] md:block" />
+      <div className="relative z-10 flex w-full flex-col items-start px-6 text-left md:max-w-[60%] md:px-12 lg:px-20 xl:px-28">
+        <Typography variant="label" className="mb-5">
           {config.label}
         </Typography>
         <Typography variant="display" as="h1" className="flex flex-col">
@@ -31,12 +36,12 @@ export default function HeroSection({ config }: Props) {
             </span>
           ))}
         </Typography>
-        <Typography variant="body" className="mt-6 max-w-md">
+        <Typography variant="body" className="mt-8 max-w-lg">
           {config.tagline}
         </Typography>
       </div>
       <div
-        className="absolute right-8 bottom-10 text-[0.65rem] tracking-[0.3em] text-white/25 md:right-12 lg:right-20 xl:right-28"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[0.65rem] tracking-[0.35em] whitespace-nowrap text-white/30"
         aria-hidden="true"
       >
         SCROLL ↓

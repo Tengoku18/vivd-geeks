@@ -92,7 +92,7 @@ export default function StatsSection({ section }: Props) {
       ref={ref}
       className="absolute z-[15] w-full -translate-y-1/2 text-center"
     >
-      <div className="mx-auto grid max-w-400 grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-x-8 gap-y-12 px-8 max-md:grid-cols-2 max-md:gap-x-4 max-md:gap-y-8 max-md:px-6 md:px-12 lg:px-20 xl:px-28">
+      <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-x-8 gap-y-12 px-6 max-md:grid-cols-2 max-md:gap-x-4 max-md:gap-y-8 md:px-10">
         {section.stats.map((s, i) => (
           <StatBlock key={i} stat={s} />
         ))}

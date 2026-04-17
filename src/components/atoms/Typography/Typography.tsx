@@ -16,17 +16,21 @@ export type TypographyVariant =
   | "note" // small print
   | "marquee"; // huge scrolling text — 12vw+
 
+// Scroll copy sits over variable-brightness video frames. Each variant pairs
+// a high-alpha fill with a text-shadow so it stays legible over dark product
+// renders and bright skyline frames alike.
+const TEXT_SHADOW_HEAVY = "[text-shadow:0_2px_18px_rgba(0,0,0,0.75)]";
+const TEXT_SHADOW_LIGHT = "[text-shadow:0_1px_10px_rgba(0,0,0,0.8)]";
+
 const VARIANT_CLASSES: Record<TypographyVariant, string> = {
-  display:
-    "font-display uppercase leading-[0.92] text-text-on-dark text-[clamp(3.5rem,12vw,14rem)]",
-  h1: "font-display uppercase leading-[0.95] text-text-on-dark text-[clamp(2rem,5vw,5.5rem)]",
-  h2: "font-display uppercase leading-[1] text-text-on-dark text-[clamp(1.5rem,3.5vw,3rem)]",
-  stat: "font-display leading-none text-text-on-dark text-[clamp(3rem,8vw,7rem)] [font-variant-numeric:tabular-nums]",
-  label: "font-body text-[0.7rem] tracking-[0.3em] uppercase text-white/35",
-  body: "font-body text-base leading-[1.65] text-white/55",
-  note: "font-body text-[0.8rem] tracking-[0.05em] text-white/30",
-  marquee:
-    "font-display uppercase leading-none text-text-on-dark text-[clamp(4rem,14vw,18rem)]",
+  display: `font-display uppercase leading-[0.95] text-text-on-dark text-[clamp(2.5rem,7vw,8rem)] ${TEXT_SHADOW_HEAVY}`,
+  h1: `font-display uppercase leading-[0.95] text-text-on-dark text-[clamp(2rem,5vw,5.5rem)] ${TEXT_SHADOW_HEAVY}`,
+  h2: `font-display uppercase leading-[1] text-text-on-dark text-[clamp(1.5rem,3.5vw,3rem)] ${TEXT_SHADOW_HEAVY}`,
+  stat: `font-display leading-none text-text-on-dark text-[clamp(3rem,8vw,7rem)] [font-variant-numeric:tabular-nums] ${TEXT_SHADOW_HEAVY}`,
+  label: `font-body text-[0.8rem] tracking-[0.3em] uppercase text-white/85 ${TEXT_SHADOW_LIGHT}`,
+  body: `font-body text-lg leading-[1.65] text-white/95 ${TEXT_SHADOW_LIGHT}`,
+  note: `font-body text-[0.95rem] tracking-[0.05em] text-white/75 ${TEXT_SHADOW_LIGHT}`,
+  marquee: `font-display uppercase leading-none text-text-on-dark text-[clamp(4rem,14vw,18rem)] ${TEXT_SHADOW_HEAVY}`,
 };
 
 type TypographyOwnProps<T extends ElementType> = {

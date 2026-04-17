@@ -8,7 +8,7 @@
 // IMAGE_SCALE 0.82–0.90 — padded cover mode around the canvas drawImage.
 export const FRAME_COUNT = 121;
 export const FRAME_SPEED = 2.0;
-export const IMAGE_SCALE = 0.87;
+export const IMAGE_SCALE = 1.0;
 
 // ─── TYPES ──────────────────────────────────────────────────────────────────
 export type AnimationType =
@@ -89,31 +89,54 @@ export type Section = ContentSection | StatsSectionData | CtaSectionData;
 // RULE: exactly one entry should have type "cta" — it must be last.
 export const SECTIONS_CONFIG: Section[] = [
   {
-    id: "feature-1",
+    id: "search-intelligence",
     type: "content",
     animation: "slide-left",
     alignment: "left",
-    label: "002 / Feature",
-    heading: "Engineered For Motion",
-    body: "Frame-perfect scroll choreography that reveals the product one beat at a time.",
+    label: "002 / Search & Intelligence",
+    heading: "Search & Intelligence",
+    body: "Own the moment your customer is looking for a solution.",
+    note: "SEO · AEO · Google Ads",
   },
   {
-    id: "feature-2",
+    id: "growth-performance",
     type: "content",
     animation: "slide-right",
     alignment: "right",
-    label: "003 / Feature",
-    heading: "Crafted Details",
-    body: "Every transition earns its place. No filler, no drift — just deliberate pacing.",
+    label: "003 / Growth & Performance",
+    heading: "Growth & Performance",
+    body: "Profitable scaling through data-backed customer acquisition.",
+    note: "Performance Marketing · Meta Ads · Lead Generation",
   },
   {
-    id: "feature-3",
+    id: "creative-brand",
     type: "content",
     animation: "rotate-in",
     alignment: "left",
-    label: "004 / Detail",
-    heading: "Built From The Grain Up",
-    body: "Materials and micro-interactions considered at the same level of care.",
+    label: "004 / Creative & Brand",
+    heading: "Creative & Brand Identity",
+    body: "Building the trust factor that justifies premium pricing.",
+    note: "Logo · Graphics · Video · Content",
+  },
+  {
+    id: "digital-infrastructure",
+    type: "content",
+    animation: "clip-reveal",
+    alignment: "right",
+    label: "005 / Digital Infrastructure",
+    heading: "Digital Infrastructure",
+    body: "The digital foundation that turns traffic into revenue.",
+    note: "Web Design & Development · CRM & Sales Funnel",
+  },
+  {
+    id: "engagement-retention",
+    type: "content",
+    animation: "scale-up",
+    alignment: "left",
+    label: "006 / Engagement & Retention",
+    heading: "Engagement & Retention",
+    body: "Turning one-time buyers into lifetime brand advocates.",
+    note: "Email Marketing · Social Media Management",
   },
   {
     id: "stats",
@@ -121,38 +144,30 @@ export const SECTIONS_CONFIG: Section[] = [
     animation: "stagger-up",
     alignment: "center",
     stats: [
-      { value: 24, suffix: "hrs", label: "Retention" },
-      { value: 3.5, decimals: 1, suffix: "×", label: "Performance" },
-      { value: 98, suffix: "%", label: "Satisfaction" },
-      { value: 50, suffix: "k+", label: "Users" },
+      { value: 24, suffix: "hrs", label: "Avg. Response" },
+      { value: 3.5, decimals: 1, suffix: "×", label: "Avg. ROAS" },
+      { value: 98, suffix: "%", label: "Client Retention" },
+      { value: 50, suffix: "k+", label: "Leads Delivered" },
     ],
-  },
-  {
-    id: "closing",
-    type: "content",
-    animation: "scale-up",
-    alignment: "left",
-    label: "005 / Details",
-    heading: "Precision, End To End",
-    body: "The experience that ships is the one we keep iterating on — never the one we sketched first.",
   },
   {
     id: "cta",
     type: "cta",
     animation: "fade-up",
     alignment: "left",
-    label: "006 / Get Started",
-    heading: "Ready?",
-    body: "Bring this energy to your own product.",
-    buttonText: "Get In Touch",
+    label: "007 / Let's Build",
+    heading: "Architect Your Market Dominance",
+    body: "Most agencies sell clicks and impressions. We build systems that transform them into a measurable increase in your bottom line.",
+    buttonText: "Start The Conversation",
     buttonHref: "#",
   },
 ];
 
 export const HERO_CONFIG: HeroConfig = {
-  label: "001 / Vivid Geeks",
-  heading: ["Vivid", "Geeks"],
-  tagline: "A scroll-driven product story rendered frame by frame.",
+  label: "VIVID GEEKS · DIGITAL AGENCY",
+  heading: ["We make", "the internet", "worth scrolling."],
+  tagline:
+    "We don't manage your digital presence — we architect your market dominance.",
 };
 
 export const MARQUEE_CONFIG: MarqueeConfig = {

@@ -12,33 +12,34 @@
   --font-body: var(--font-body-var), sans-serif;
 }
 
-:root {
-  --scroll-height: 1000vh;
-}
-
-@media (max-width: 768px) {
+/* Custom resets and globals live inside @layer base so that Tailwind's
+   utility classes (in @layer utilities, which cascades after base) always
+   win. Unlayered rules beat layered ones regardless of specificity — that
+   was silently overriding mx-auto, etc. */
+@layer base {
   :root {
-    --scroll-height: 620vh;
+    --scroll-height: 1000vh;
   }
-}
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+  /* Mobile: more scroll room per section so overlays and animations have
+     time to resolve on touch scroll. 620vh with 7 distributed sections left
+     each slot at ~72vh — too cramped for clean overlay fades. */
+  @media (max-width: 768px) {
+    :root {
+      --scroll-height: 900vh;
+    }
+  }
 
-html {
-  /* Lenis handles smooth scroll — keep native behaviour off. */
-  scroll-behavior: auto;
-}
+  html {
+    /* Lenis handles smooth scroll — keep native behaviour off. */
+    scroll-behavior: auto;
+  }
 
-body {
-  background: var(--color-bg-dark);
-  color: var(--color-text-primary);
-  font-family: var(--font-body);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+  body {
+    background: var(--color-bg-dark);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
 }
