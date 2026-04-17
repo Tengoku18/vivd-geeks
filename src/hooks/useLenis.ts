@@ -35,6 +35,11 @@ export function useLenis() {
             direction === 1 && scroll > 80
               ? "translateY(-100%)"
               : "translateY(0)";
+
+          // Fade the glassmorphism backdrop in once we've left the hero so
+          // the nav stays readable over every downstream section.
+          const glass = document.getElementById("site-header-glass");
+          if (glass) glass.style.opacity = scroll > 80 ? "1" : "0";
         },
       );
 

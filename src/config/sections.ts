@@ -187,3 +187,168 @@ export const MARQUEE_CONFIG: MarqueeConfig = {
 
 // ID of the stats section that triggers the dark overlay.
 export const STATS_SECTION_ID = "stats";
+
+// ─── CONTACT ────────────────────────────────────────────────────────────────
+export interface ContactInfo {
+  label: string;
+  value: string;
+  href: string;
+}
+
+export interface ContactConfig {
+  label: string;
+  heading: string;
+  body: string;
+  info: ContactInfo[];
+  socials: { label: string; href: string }[];
+  services: string[]; // populates the "what do you need" select
+}
+
+export const CONTACT_CONFIG: ContactConfig = {
+  label: "008 / Contact",
+  heading: "Start The Conversation",
+  body: "Tell us about your brand and where you want it to go. We reply to every serious enquiry within one business day.",
+  info: [
+    {
+      label: "Email",
+      value: "hello@vividgeeks.com",
+      href: "mailto:hello@vividgeeks.com",
+    },
+    { label: "Phone", value: "+1 (415) 555-0134", href: "tel:+14155550134" },
+    {
+      label: "Studio",
+      value: "San Francisco · Remote",
+      href: "https://maps.google.com/?q=San+Francisco",
+    },
+  ],
+  socials: [
+    { label: "Instagram", href: "https://instagram.com" },
+    { label: "LinkedIn", href: "https://linkedin.com" },
+    { label: "Dribbble", href: "https://dribbble.com" },
+    { label: "X / Twitter", href: "https://twitter.com" },
+  ],
+  services: [
+    "Search & Intelligence",
+    "Growth & Performance",
+    "Creative & Brand",
+    "Digital Infrastructure",
+    "Engagement & Retention",
+    "Not sure yet",
+  ],
+};
+
+// ─── FAQ ────────────────────────────────────────────────────────────────────
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface FaqConfig {
+  label: string;
+  heading: string;
+  body: string;
+  items: FaqItem[];
+}
+
+export const FAQ_CONFIG: FaqConfig = {
+  label: "009 / FAQ",
+  heading: "Questions, Answered",
+  body: "The short version of what most prospective clients ask us before the first call. Still curious? Use the form above — we reply within a business day.",
+  items: [
+    {
+      question: "What does a typical engagement look like?",
+      answer:
+        "Most partnerships start with a focused 4–6 week discovery and strategy sprint, followed by a retained monthly engagement. We build the system, hand over the playbook, and stay embedded as operators, not advisors.",
+    },
+    {
+      question: "Do you work with early-stage startups?",
+      answer:
+        "Selectively. We take on pre-seed to Series A companies when there's a clear thesis, a product in market, and budget for at least six months of work. If the fit isn't right we'll tell you on the intro call.",
+    },
+    {
+      question: "How is pricing structured?",
+      answer:
+        "Fixed-scope sprints for strategy and creative; monthly retainers for growth, performance, and infrastructure. Typical engagements land between $12k–$45k per month depending on surface area. No markups on ad spend or tooling.",
+    },
+    {
+      question: "Can you take over an existing ad account or site?",
+      answer:
+        "Yes — most clients come to us with live accounts and a history of spend. We audit, preserve the learning, and rebuild the layers that are hurting performance before we push anything new.",
+    },
+    {
+      question: "Do you offer one-off projects?",
+      answer:
+        "For brand identity, site builds, or a single campaign — yes. For anything that needs to compound (SEO, paid, CRO), no. We only accept work we can meaningfully move the needle on.",
+    },
+    {
+      question: "Who owns the work when we finish?",
+      answer:
+        "You do. Every account, asset, document, and integration is under your ownership from day one. We build on your infrastructure, never ours.",
+    },
+  ],
+};
+
+// ─── FOOTER ─────────────────────────────────────────────────────────────────
+export interface FooterColumn {
+  title: string;
+  links: { label: string; href: string }[];
+}
+
+export interface FooterCta {
+  heading: string[]; // each string = one display line
+  body: string;
+  buttonText: string;
+  buttonHref: string;
+}
+
+export interface FooterConfig {
+  cta: FooterCta;
+  tagline: string;
+  columns: FooterColumn[];
+  legalLinks: { label: string; href: string }[];
+  copyright: string;
+}
+
+export const FOOTER_CONFIG: FooterConfig = {
+  cta: {
+    heading: ["Have a vision?", "Let's make it real."],
+    body: "Currently accepting a limited number of engagements for Q2 2026.",
+    buttonText: "Book an intro call",
+    buttonHref: "mailto:hello@vividgeeks.com?subject=Intro%20call",
+  },
+  tagline:
+    "An independent digital agency architecting market dominance for ambitious brands.",
+  columns: [
+    {
+      title: "Studio",
+      links: [
+        { label: "About", href: "#about" },
+        { label: "Work", href: "#work" },
+        { label: "Careers", href: "#careers" },
+      ],
+    },
+    {
+      title: "Services",
+      links: [
+        { label: "Search & Intelligence", href: "#search-intelligence" },
+        { label: "Growth & Performance", href: "#growth-performance" },
+        { label: "Creative & Brand", href: "#creative-brand" },
+        { label: "Digital Infrastructure", href: "#digital-infrastructure" },
+      ],
+    },
+    {
+      title: "Connect",
+      links: [
+        { label: "Instagram", href: "https://instagram.com" },
+        { label: "LinkedIn", href: "https://linkedin.com" },
+        { label: "Dribbble", href: "https://dribbble.com" },
+      ],
+    },
+  ],
+  legalLinks: [
+    { label: "Privacy", href: "#privacy" },
+    { label: "Terms", href: "#terms" },
+    { label: "Cookies", href: "#cookies" },
+  ],
+  copyright: `© ${new Date().getFullYear()} Vivid Geeks. All rights reserved.`,
+};

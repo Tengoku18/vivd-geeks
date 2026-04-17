@@ -5,6 +5,9 @@ import {
   HERO_CONFIG,
   MARQUEE_CONFIG,
   STATS_SECTION_ID,
+  CONTACT_CONFIG,
+  FAQ_CONFIG,
+  FOOTER_CONFIG,
 } from "@/config/sections";
 import { distributeScrollRanges, getOverlayRange } from "@/lib/scrollUtils";
 import { useLenis } from "@/hooks/useLenis";
@@ -19,6 +22,9 @@ import MarqueeText from "@/components/organisms/MarqueeText/MarqueeText";
 import ScrollSection from "@/components/organisms/ScrollSection/ScrollSection";
 import StatsSection from "@/components/organisms/StatsSection/StatsSection";
 import CtaSection from "@/components/organisms/CtaSection/CtaSection";
+import ContactSection from "@/components/organisms/ContactSection/ContactSection";
+import FAQSection from "@/components/organisms/FAQSection/FAQSection";
+import FooterSection from "@/components/organisms/FooterSection/FooterSection";
 
 export default function Home() {
   const [loadProgress, setLoadProgress] = useState(0);
@@ -62,6 +68,12 @@ export default function Home() {
           }
         })}
       </div>
+
+      {/* Post-scroll content: normal document flow, solid backgrounds so
+          they sit above the fixed canvas/overlays once the animation ends. */}
+      <ContactSection config={CONTACT_CONFIG} />
+      <FAQSection config={FAQ_CONFIG} />
+      <FooterSection config={FOOTER_CONFIG} />
     </>
   );
 }

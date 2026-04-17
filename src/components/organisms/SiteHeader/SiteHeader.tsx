@@ -1,8 +1,9 @@
 // src/components/organisms/SiteHeader/SiteHeader.tsx
 // BUG FIX: previous version used window.addEventListener("scroll") which
 // does not fire reliably under Lenis's virtual scroll model.
-// Header hide/show is driven by the Lenis onScroll callback in useLenis.ts.
-// This component renders the static shell; the transform is applied externally.
+// Header hide/show + glass fade-in is driven by the Lenis onScroll callback
+// in useLenis.ts. This component renders the static shell; the transform
+// and glass opacity are applied externally.
 
 const NAV_LINKS = [
   { label: "Features", href: "#features" },
@@ -17,7 +18,21 @@ export default function SiteHeader() {
       id="site-header"
       className="fixed inset-x-0 top-0 z-50 transition-transform duration-400 ease-in-out"
     >
-      <div className="flex w-full items-center justify-between px-6 py-6 md:px-12 lg:px-20 xl:px-28">
+      {/* Adaptive glass backdrop — invisible at top, fades in once the user
+          scrolls past the hero. A dark-tinted frosted panel is used instead
+          of a white one because the nav text is white, and a white glass
+          would vanish over the cream-toned FAQ section. Opacity is toggled
+          from useLenis.ts. */}
+      <div
+        aria-hidden="true"
+        id="site-header-glass"
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 ease-out"
+      >
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-xl backdrop-saturate-150" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
+      </div>
+
+      <div className="relative flex w-full items-center justify-between px-6 py-6 md:px-12 lg:px-20 xl:px-28">
         <span className="font-display text-text-on-dark text-2xl tracking-[0.15em] uppercase">
           Vivid Geeks
         </span>

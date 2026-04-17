@@ -5,6 +5,27 @@
   50% { opacity: 0; }
 }
 
+/* Footer/Contact ambient motion. Subtle by design — these run forever, so
+   low amplitude + long durations keep them out of the user's focus. */
+@keyframes rotate-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes rotate-slow-reverse {
+  to { transform: rotate(-360deg); }
+}
+@keyframes drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%     { transform: translate3d(8%, -6%, 0) scale(1.08); }
+}
+@keyframes drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%     { transform: translate3d(-10%, 8%, 0) scale(1.05); }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%     { opacity: 0.35; transform: scale(1.8); }
+}
+
 @theme {
   --color-bg-dark: #0d0d0d;
   --color-bg-light: #f4f1ed;
@@ -46,5 +67,14 @@
     font-family: var(--font-body);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+  }
+
+  /* Tailwind v4 / modern Chrome dropped the default pointer cursor on
+     <button>. Restore it globally so every interactive control reads as
+     clickable without needing cursor-pointer on each one. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  summary {
+    cursor: pointer;
   }
 }
