@@ -7,6 +7,7 @@
 
 import type { HeroConfig } from "@/config/sections";
 import { Typography } from "@/components/atoms/Typography";
+import { Typewriter } from "@/components/atoms/Typewriter/Typewriter";
 import HeroPlayground from "@/components/organisms/HeroPlayground/HeroPlayground";
 
 interface Props {
@@ -35,13 +36,16 @@ export default function HeroSection({ config }: Props) {
               {line}
             </span>
           ))}
+          <span className="block">
+            <Typewriter phrases={config.typewriterPhrases} />
+          </span>
         </Typography>
         <Typography variant="body" className="mt-8 max-w-lg">
           {config.tagline}
         </Typography>
       </div>
       <div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[0.65rem] tracking-[0.35em] whitespace-nowrap text-white/30"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-[0.65rem] tracking-[0.35em] whitespace-nowrap text-white/30"
         aria-hidden="true"
       >
         SCROLL ↓

@@ -27,6 +27,7 @@ export type SectionAlignment = "left" | "right" | "center";
 export interface HeroConfig {
   label: string;
   heading: string[]; // each string = one display line
+  typewriterPhrases: string[]; // rotating phrases typed below heading
   tagline: string;
 }
 
@@ -165,7 +166,14 @@ export const SECTIONS_CONFIG: Section[] = [
 
 export const HERO_CONFIG: HeroConfig = {
   label: "VIVID GEEKS · DIGITAL AGENCY",
-  heading: ["We make", "the internet", "worth scrolling."],
+  heading: ["We Turn"],
+  typewriterPhrases: [
+    "Clicks Into Revenue.",
+    "Brands Into Authorities.",
+    "Visitors Into Customers.",
+    "Leads Into Loyalty.",
+    "Data Into Dominance.",
+  ],
   tagline:
     "We don't manage your digital presence — we architect your market dominance.",
 };
