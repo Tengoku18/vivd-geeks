@@ -224,7 +224,6 @@ export const CONTACT_CONFIG: ContactConfig = {
   socials: [
     { label: "Instagram", href: "https://instagram.com" },
     { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "Dribbble", href: "https://dribbble.com" },
     { label: "X / Twitter", href: "https://twitter.com" },
   ],
   services: [
@@ -313,8 +312,9 @@ export const FOOTER_CONFIG: FooterConfig = {
   cta: {
     heading: ["Have a vision?", "Let's make it real."],
     body: "Currently accepting a limited number of engagements for Q2 2026.",
-    buttonText: "Book an intro call",
-    buttonHref: "mailto:hello@vividgeeks.com?subject=Intro%20call",
+    buttonText: "Schedule a call",
+    // TODO: swap in the real Calendly handle / event slug.
+    buttonHref: "https://calendly.com/vividgeeks/intro-call",
   },
   tagline:
     "An independent digital agency architecting market dominance for ambitious brands.",
@@ -324,7 +324,6 @@ export const FOOTER_CONFIG: FooterConfig = {
       links: [
         { label: "About", href: "#about" },
         { label: "Work", href: "#work" },
-        { label: "Careers", href: "#careers" },
       ],
     },
     {
@@ -334,6 +333,7 @@ export const FOOTER_CONFIG: FooterConfig = {
         { label: "Growth & Performance", href: "#growth-performance" },
         { label: "Creative & Brand", href: "#creative-brand" },
         { label: "Digital Infrastructure", href: "#digital-infrastructure" },
+        { label: "Engagement & Retention", href: "#engagement-retention" },
       ],
     },
     {
@@ -341,14 +341,13 @@ export const FOOTER_CONFIG: FooterConfig = {
       links: [
         { label: "Instagram", href: "https://instagram.com" },
         { label: "LinkedIn", href: "https://linkedin.com" },
-        { label: "Dribbble", href: "https://dribbble.com" },
+        { label: "Facebook", href: "https://facebook.com" },
       ],
     },
   ],
   legalLinks: [
-    { label: "Privacy", href: "#privacy" },
-    { label: "Terms", href: "#terms" },
-    { label: "Cookies", href: "#cookies" },
+    { label: "Privacy", href: "/privacy" },
+    { label: "Terms", href: "/terms" },
   ],
   copyright: `© ${new Date().getFullYear()} Vivid Geeks. All rights reserved.`,
 };

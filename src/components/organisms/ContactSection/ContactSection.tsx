@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import type { ContactConfig } from "@/config/sections";
 import { SectionHeader } from "@/components/molecules/SectionHeader/SectionHeader";
 import { Typography } from "@/components/atoms/Typography";
+import { Button } from "@/components/atoms/Button";
 import { cn } from "@/lib/cn";
 
 interface Props {
@@ -264,35 +265,13 @@ export default function ContactSection({ config }: Props) {
           </div>
 
           <div className="contact-reveal-right flex flex-col gap-4 pt-4 sm:flex-row sm:items-center sm:justify-between">
-            <button
-              type="submit"
-              disabled={status === "sending"}
-              className={cn(
-                "group inline-flex items-center gap-3 self-start",
-                "border border-white/15 bg-transparent",
-                "px-7 py-4 min-w-[14rem]",
-                "font-body text-[0.75rem] tracking-[0.25em] uppercase",
-                "text-text-on-dark",
-                "transition-colors duration-300 ease-out",
-                "hover:bg-accent hover:text-bg-dark hover:border-accent",
-                "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
-                "disabled:cursor-wait disabled:opacity-70",
-              )}
-            >
-              <span>
-                {status === "sending"
-                  ? "Sending…"
-                  : status === "sent"
-                    ? "Message sent"
-                    : "Send Message"}
-              </span>
-              <span
-                aria-hidden="true"
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              >
-                →
-              </span>
-            </button>
+            <Button type="submit" disabled={status === "sending"}>
+              {status === "sending"
+                ? "Sending…"
+                : status === "sent"
+                  ? "Message sent"
+                  : "Send Message"}
+            </Button>
 
             <p
               role="status"

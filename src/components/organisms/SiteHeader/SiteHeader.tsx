@@ -5,10 +5,13 @@
 // in useLenis.ts. This component renders the static shell; the transform
 // and glass opacity are applied externally.
 
+// Hash links are prefixed with "/" so they work from any route, not just
+// the home page. Plain "#contact" would resolve to "/work#contact" when
+// the user is on /work and silently do nothing.
 const NAV_LINKS = [
-  { label: "Features", href: "#features" },
-  { label: "Work", href: "#work" },
-  { label: "Contact", href: "#contact" },
+  { label: "Features", href: "/#features" },
+  { label: "Work", href: "/work" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function SiteHeader() {

@@ -1,11 +1,13 @@
 // src/components/organisms/FooterSection/FooterSection.tsx
 "use client";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import type { FooterConfig } from "@/config/sections";
 import { Typography } from "@/components/atoms/Typography";
 import { Button } from "@/components/atoms/Button";
 import { LiveClock } from "@/components/atoms/LiveClock";
 import { cn } from "@/lib/cn";
+import { scrollToHash } from "@/lib/scrollToHash";
 
 // Inline style that repeats a faint dot at a fixed cadence. Used as a
 // full-bleed background overlay to add texture without pulling focus.
@@ -97,6 +99,19 @@ export default function FooterSection({ config }: Props) {
         once: true,
         onEnter: () => tl.play(),
       });
+
+      // BUG FIX: on client-side navigation (Next.js app-router route change)
+      // the async `import("gsap")` can finish AFTER the user has already
+      // scrolled past the trigger's start line — at which point ScrollTrigger
+      // treats the point as "already crossed" and `onEnter` never fires.
+      // Meanwhile `tl.from(..., { opacity: 0 })` has already applied the
+      // initial hidden state via immediateRender, so the footer stays stuck
+      // at a faded/empty look until the next hard refresh.
+      // Guard: if we're already past the start on init, play immediately.
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.85) {
+        tl.play();
+      }
     };
 
     init();
@@ -322,6 +337,7 @@ export default function FooterSection({ config }: Props) {
               <ul className="flex flex-col gap-3">
                 {col.links.map((link) => {
                   const isExternal = /^https?:\/\//.test(link.href);
+                  const isHash = link.href.startsWith("#");
                   return (
                     <li key={link.label}>
                       <a
@@ -329,6 +345,19 @@ export default function FooterSection({ config }: Props) {
                         {...(isExternal
                           ? { target: "_blank", rel: "noreferrer noopener" }
                           : {})}
+                        onClick={
+                          isHash
+                            ? (e) => {
+                                // Delegate to Lenis so the scroll stays
+                                // consistent with the rest of the page.
+                                // Only swallow the default if we actually
+                                // found and scrolled to the target.
+                                if (scrollToHash(link.href)) {
+                                  e.preventDefault();
+                                }
+                              }
+                            : undefined
+                        }
                         className={cn(
                           "font-body text-[0.95rem] tracking-[0.04em]",
                           "text-white/80 hover:text-accent",
@@ -358,16 +387,24 @@ export default function FooterSection({ config }: Props) {
             {config.copyright}
           </p>
           <ul className="flex flex-wrap items-center gap-x-8 gap-y-3">
-            {config.legalLinks.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  className="font-body hover:text-accent text-[0.75rem] tracking-[0.2em] text-white/50 uppercase transition-colors"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {config.legalLinks.map((link) => {
+              const isInternal = link.href.startsWith("/");
+              const className =
+                "font-body hover:text-accent text-[0.75rem] tracking-[0.2em] text-white/50 uppercase transition-colors";
+              return (
+                <li key={link.label}>
+                  {isInternal ? (
+                    <Link href={link.href} className={className}>
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a href={link.href} className={className}>
+                      {link.label}
+                    </a>
+                  )}
+                </li>
+              );
+            })}
             <li>
               <button
                 type="button"

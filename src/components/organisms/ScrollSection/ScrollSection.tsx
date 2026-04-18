@@ -172,6 +172,7 @@ export default function ScrollSection({ section }: Props) {
   return (
     <section
       ref={ref}
+      id={section.id}
       className={cn(
         "pointer-events-none absolute z-[15] w-full -translate-y-1/2",
         ALIGNMENT_CLASSES[align],
