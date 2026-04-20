@@ -26,7 +26,7 @@ export default function PrivacyPage() {
           {" "}
           <a
             href="mailto:hello@vividgeeks.com"
-            className="text-text-primary hover:text-accent border-b border-black/20 transition-colors"
+            className="text-text-on-dark hover:text-accent border-b border-white/25 hover:border-accent transition-colors"
           >
             hello@vividgeeks.com
           </a>
@@ -40,14 +40,14 @@ export default function PrivacyPage() {
         </p>
         <ul className="list-disc space-y-2 pl-5">
           <li>
-            <strong className="text-text-primary font-normal">
+            <strong className="text-text-on-dark font-normal">
               Contact form submissions
             </strong>{" "}
             — your name, email, the service you&apos;re interested in, and the
             details of your brief.
           </li>
           <li>
-            <strong className="text-text-primary font-normal">
+            <strong className="text-text-on-dark font-normal">
               Intro-call bookings
             </strong>{" "}
             — when you schedule a call we use Calendly, which collects your
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
             own privacy policy for their handling.
           </li>
           <li>
-            <strong className="text-text-primary font-normal">
+            <strong className="text-text-on-dark font-normal">
               Direct correspondence
             </strong>{" "}
             — anything you share in email or during a call.
@@ -94,17 +94,19 @@ export default function PrivacyPage() {
         </p>
         <ul className="list-disc space-y-2 pl-5">
           <li>
-            <strong className="text-text-primary font-normal">Calendly</strong>
+            <strong className="text-text-on-dark font-normal">
+              Calendly
+            </strong>
             {" "}— to schedule intro calls.
           </li>
           <li>
-            <strong className="text-text-primary font-normal">
+            <strong className="text-text-on-dark font-normal">
               Email provider
             </strong>{" "}
             — to send and receive correspondence.
           </li>
           <li>
-            <strong className="text-text-primary font-normal">
+            <strong className="text-text-on-dark font-normal">
               Hosting / CDN
             </strong>{" "}
             — to deliver this website. Standard server logs (IP, user agent,
@@ -148,7 +150,7 @@ export default function PrivacyPage() {
           Email{" "}
           <a
             href="mailto:hello@vividgeeks.com"
-            className="text-text-primary hover:text-accent border-b border-black/20 transition-colors"
+            className="text-text-on-dark hover:text-accent border-b border-white/25 hover:border-accent transition-colors"
           >
             hello@vividgeeks.com
           </a>{" "}
@@ -180,7 +182,7 @@ export default function PrivacyPage() {
           Questions, complaints, or requests go to{" "}
           <a
             href="mailto:hello@vividgeeks.com"
-            className="text-text-primary hover:text-accent border-b border-black/20 transition-colors"
+            className="text-text-on-dark hover:text-accent border-b border-white/25 hover:border-accent transition-colors"
           >
             hello@vividgeeks.com
           </a>
@@ -191,7 +193,7 @@ export default function PrivacyPage() {
             href="https://www.oaic.gov.au"
             target="_blank"
             rel="noreferrer noopener"
-            className="text-text-primary hover:text-accent border-b border-black/20 transition-colors"
+            className="text-text-on-dark hover:text-accent border-b border-white/25 hover:border-accent transition-colors"
           >
             oaic.gov.au
           </a>

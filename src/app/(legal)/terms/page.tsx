@@ -25,7 +25,7 @@ export default function TermsPage() {
           can reach us at{" "}
           <a
             href="mailto:hello@vividgeeks.com"
-            className="text-text-primary hover:text-accent border-b border-black/20 transition-colors"
+            className="text-text-on-dark hover:text-accent border-b border-white/25 hover:border-accent transition-colors"
           >
             hello@vividgeeks.com
           </a>
@@ -159,7 +159,7 @@ export default function TermsPage() {
           Questions about these terms? Email{" "}
           <a
             href="mailto:hello@vividgeeks.com"
-            className="text-text-primary hover:text-accent border-b border-black/20 transition-colors"
+            className="text-text-on-dark hover:text-accent border-b border-white/25 hover:border-accent transition-colors"
           >
             hello@vividgeeks.com
           </a>

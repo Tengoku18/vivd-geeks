@@ -1,12 +1,19 @@
 // src/app/(legal)/layout.tsx
-// Shared chrome for /privacy and /terms. Uses the cream palette introduced
-// by the FAQ section so legal copy reads well for long-form prose, then
-// punctuates with the dark FooterSection for continuity with the rest of
-// the site.
+// Shared chrome for /privacy and /terms. Now matches the dark theme used
+// on /work and /work/[slug] — same SiteHeader, same FooterSection,
+// same ambient glow + dot grid — so legal copy reads as part of the
+// site rather than a stand-alone document.
 
-import Link from "next/link";
 import FooterSection from "@/components/organisms/FooterSection/FooterSection";
+import SiteHeader from "@/components/organisms/SiteHeader/SiteHeader";
+import LenisInit from "@/components/atoms/LenisInit/LenisInit";
 import { FOOTER_CONFIG } from "@/config/sections";
+
+const DOT_GRID_STYLE: React.CSSProperties = {
+  backgroundImage:
+    "radial-gradient(rgba(240,237,232,0.08) 1px, transparent 1px)",
+  backgroundSize: "28px 28px",
+};
 
 export default function LegalLayout({
   children,
@@ -14,53 +21,33 @@ export default function LegalLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div
-      className="relative min-h-screen"
-      style={{
-        background:
-          "linear-gradient(180deg, #f4f1ed 0%, #ece6dc 65%, #e4ddd0 100%)",
-      }}
-    >
-      {/* Fine dot-grid texture — matches the FAQ section's surface */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage: "radial-gradient(#1a1a1a 1px, transparent 1px)",
-          backgroundSize: "22px 22px",
-        }}
-      />
+    <>
+      <LenisInit />
+      <SiteHeader />
 
-      <LegalHeader />
-      <main className="relative">{children}</main>
+      <main className="bg-bg-dark text-text-on-dark relative min-h-screen overflow-hidden">
+        {/* Ambient glow orbs — same idiom as the footer + work pages so
+            the legal pages read as part of one design system. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-1/4 -right-1/4 h-[70vmin] w-[70vmin] rounded-full bg-[radial-gradient(circle_at_center,rgba(200,169,126,0.12),transparent_65%)] blur-3xl"
+          style={{ animation: "drift-a 22s ease-in-out infinite" }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-1/2 -left-1/4 h-[60vmin] w-[60vmin] rounded-full bg-[radial-gradient(circle_at_center,rgba(120,160,220,0.07),transparent_65%)] blur-3xl"
+          style={{ animation: "drift-b 28s ease-in-out infinite" }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-30"
+          style={DOT_GRID_STYLE}
+        />
+
+        <div className="relative">{children}</div>
+      </main>
+
       <FooterSection config={FOOTER_CONFIG} />
-    </div>
-  );
-}
-
-function LegalHeader() {
-  return (
-    <header className="relative z-20 border-b border-black/10 bg-transparent backdrop-blur-[2px]">
-      <div className="flex items-center justify-between px-6 py-6 md:px-12 lg:px-20 xl:px-28">
-        <Link
-          href="/"
-          className="font-display text-text-primary hover:text-accent text-2xl tracking-[0.15em] uppercase transition-colors duration-200"
-        >
-          Vivid Geeks
-        </Link>
-        <Link
-          href="/"
-          className="group font-body text-text-muted hover:text-accent inline-flex items-center gap-2 text-[0.75rem] tracking-[0.25em] uppercase transition-colors duration-200"
-        >
-          <span
-            aria-hidden="true"
-            className="inline-block transition-transform duration-300 group-hover:-translate-x-1"
-          >
-            ←
-          </span>
-          <span>Back home</span>
-        </Link>
-      </div>
-    </header>
+    </>
   );
 }
