@@ -4,7 +4,12 @@ import { useEffect, useRef } from "react";
 import { useCanvasFrames } from "@/hooks/useCanvasFrames";
 // BUG FIX: import FRAME_COUNT and FRAME_SPEED from config — not hardcoded here.
 // If the user updates config/sections.ts, this component automatically reflects it.
-import { FRAME_COUNT, FRAME_SPEED, IMAGE_SCALE } from "@/config/sections";
+import {
+  FRAME_COUNT,
+  FRAME_SPEED,
+  FRAMES_DIR,
+  IMAGE_SCALE,
+} from "@/config/sections";
 
 interface Props {
   onLoadProgress?: (p: number) => void;
@@ -16,7 +21,10 @@ export default function CanvasScene({ onLoadProgress }: Props) {
   const currentFrameRef = useRef(0);
   const bgColorRef = useRef("#0d0d0d");
 
-  const { framesRef, progress, priorityReady } = useCanvasFrames(FRAME_COUNT);
+  const { framesRef, progress, priorityReady } = useCanvasFrames(
+    FRAME_COUNT,
+    FRAMES_DIR,
+  );
 
   useEffect(() => {
     onLoadProgress?.(progress);

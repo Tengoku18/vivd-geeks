@@ -3,9 +3,12 @@
 // component files. Animation choreography is scheduled automatically.
 
 // ─── FRAME SETTINGS ─────────────────────────────────────────────────────────
-// FRAME_COUNT matches the number of WebPs in public/frames (extracted by ffmpeg).
+// FRAME_COUNT matches the number of WebPs in FRAMES_DIR (extracted by ffmpeg).
+// FRAMES_DIR points at a public/* directory; change it to swap source videos
+// without touching the CanvasScene component.
 // FRAME_SPEED 1.8–2.2 — higher = product animation finishes earlier in scroll.
 // IMAGE_SCALE 0.82–0.90 — padded cover mode around the canvas drawImage.
+export const FRAMES_DIR = "/update-frames";
 export const FRAME_COUNT = 121;
 export const FRAME_SPEED = 2.0;
 export const IMAGE_SCALE = 1.0;
