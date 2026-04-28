@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const PRIORITY_FRAMES = 10;
 
-export function useCanvasFrames(frameCount: number) {
+export function useCanvasFrames(frameCount: number, framesPath: string = "/frames") {
   const framesRef = useRef<HTMLImageElement[]>(new Array(frameCount));
   const [loadedCount, setLoadedCount] = useState(0);
   const [priorityReady, setPriorityReady] = useState(false);
@@ -15,7 +15,7 @@ export function useCanvasFrames(frameCount: number) {
     const loadFrame = (i: number): Promise<void> =>
       new Promise((resolve) => {
         const img = new Image();
-        img.src = `/frames/frame_${String(i + 1).padStart(4, "0")}.webp`;
+        img.src = `${framesPath}/frame_${String(i + 1).padStart(4, "0")}.webp`;
         img.onload = () => {
           if (!mounted) {
             resolve();
@@ -51,7 +51,7 @@ export function useCanvasFrames(frameCount: number) {
     return () => {
       mounted = false;
     };
-  }, [frameCount]);
+  }, [frameCount, framesPath]);
 
   return {
     framesRef,

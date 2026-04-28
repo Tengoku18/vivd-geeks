@@ -2,21 +2,33 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { useCanvasFrames } from "@/hooks/useCanvasFrames";
-// BUG FIX: import FRAME_COUNT and FRAME_SPEED from config — not hardcoded here.
+// BUG FIX: import frameCount and frameSpeed from config — not hardcoded here.
 // If the user updates config/sections.ts, this component automatically reflects it.
-import { FRAME_COUNT, FRAME_SPEED, IMAGE_SCALE } from "@/config/sections";
+import {
+  FRAME_COUNT as DEFAULT_FRAME_COUNT,
+  FRAME_SPEED as DEFAULT_FRAME_SPEED,
+  IMAGE_SCALE,
+} from "@/config/sections";
 
 interface Props {
   onLoadProgress?: (p: number) => void;
+  framesPath?: string;
+  frameCount?: number;
+  frameSpeed?: number;
 }
 
-export default function CanvasScene({ onLoadProgress }: Props) {
+export default function CanvasScene({
+  onLoadProgress,
+  framesPath = "/frames",
+  frameCount = DEFAULT_FRAME_COUNT,
+  frameSpeed = DEFAULT_FRAME_SPEED,
+}: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const currentFrameRef = useRef(0);
   const bgColorRef = useRef("#0d0d0d");
 
-  const { framesRef, progress, priorityReady } = useCanvasFrames(FRAME_COUNT);
+  const { framesRef, progress, priorityReady } = useCanvasFrames(frameCount, framesPath);
 
   useEffect(() => {
     onLoadProgress?.(progress);
@@ -99,10 +111,10 @@ export default function CanvasScene({ onLoadProgress }: Props) {
         end: "bottom bottom",
         scrub: true,
         onUpdate: (self) => {
-          const accelerated = Math.min(self.progress * FRAME_SPEED, 1);
+          const accelerated = Math.min(self.progress * frameSpeed, 1);
           const index = Math.min(
-            Math.floor(accelerated * FRAME_COUNT),
-            FRAME_COUNT - 1,
+            Math.floor(accelerated * frameCount),
+            frameCount - 1,
           );
           if (index !== currentFrameRef.current) {
             currentFrameRef.current = index;
