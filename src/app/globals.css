@@ -26,6 +26,13 @@
   50%     { opacity: 0.35; transform: scale(1.8); }
 }
 
+/* Track is rendered with the item set duplicated; shifting from -50% to 0
+   moves content visually rightward and loops seamlessly. */
+@keyframes marquee-right {
+  from { transform: translate3d(-50%, 0, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}
+
 @theme {
   --color-bg-dark: #0d0d0d;
   --color-bg-light: #f4f1ed;

@@ -264,6 +264,57 @@ export const MARQUEE_CONFIG: MarqueeConfig = {
 // ID of the stats section that triggers the dark overlay.
 export const STATS_SECTION_ID = "stats";
 
+// ─── TESTIMONIALS ───────────────────────────────────────────────────────────
+export interface TestimonialItem {
+  quote: string;
+  metric?: string; // short result line, e.g. "−38% CPA in 90 days"
+  author: string;
+  role: string; // "Head of Growth, Northwave Capital"
+}
+
+export interface TestimonialsConfig {
+  label: string;
+  heading: string;
+  body: string;
+  items: TestimonialItem[];
+}
+
+export const TESTIMONIALS_CONFIG: TestimonialsConfig = {
+  label: "008 / Testimonials",
+  heading: "Operators Who Scaled With Us",
+  body: "We don't sell impressions — we engineer outcomes. Here's what the operators behind the numbers have to say.",
+  items: [
+    {
+      quote:
+        "Vivid Geeks didn't just bring us leads — they engineered a pipeline that compounds. Our cost-per-acquisition dropped before our retainer was three months old.",
+      metric: "−38% CPA in 90 days",
+      author: "Marcus Halloway",
+      role: "Head of Growth, Northwave Capital",
+    },
+    {
+      quote:
+        "Six weeks after launching the funnel they built, we were sold out two months ahead. They built the machine; we just had to keep stocking it.",
+      metric: "2× monthly revenue",
+      author: "Priya Anand",
+      role: "Founder, Solace Skincare",
+    },
+    {
+      quote:
+        "Most agencies sell impressions. These guys sell outcomes. Our paid spend is profitable on the first click — that wasn't possible six months ago.",
+      metric: "3.4× ROAS",
+      author: "Daniel Reyes",
+      role: "CMO, Evergreen Property Group",
+    },
+    {
+      quote:
+        "The brand identity work alone repositioned us in the market. We're now the firm clients ask for by name — and the inbound proves it.",
+      metric: "+72% inbound leads",
+      author: "Lina Costa",
+      role: "Director, Atlas Legal Advisory",
+    },
+  ],
+};
+
 // ─── CONTACT ────────────────────────────────────────────────────────────────
 export interface ContactInfo {
   label: string;
@@ -281,7 +332,7 @@ export interface ContactConfig {
 }
 
 export const CONTACT_CONFIG: ContactConfig = {
-  label: "008 / Contact",
+  label: "009 / Contact",
   heading: "Start The Conversation",
   body: "Tell us about your brand and where you want it to go. We reply to every serious enquiry within one business day.",
   info: [
@@ -330,7 +381,7 @@ export interface FaqConfig {
 }
 
 export const FAQ_CONFIG: FaqConfig = {
-  label: "009 / FAQ",
+  label: "010 / FAQ",
   heading: "Questions, Answered",
   body: "The short version of what most prospective clients ask us before the first call. Still curious? Use the form above — we reply within a business day.",
   items: [
