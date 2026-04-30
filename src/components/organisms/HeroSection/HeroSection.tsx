@@ -20,7 +20,7 @@ export default function HeroSection({ config }: Props) {
     // document.getElementById("hero-section"). Keep these in sync.
     <section
       id="hero-section"
-      className="bg-bg-dark fixed inset-0 z-20 flex flex-col items-start justify-center transition-opacity duration-75 ease-linear"
+      className="bg-bg-dark pointer-events-none fixed inset-0 z-20 flex flex-col items-start justify-center transition-opacity duration-75 ease-linear"
     >
       {/* Interactive particle network — desktop only, occupies the right
           portion of the hero. Desktop heading still has ~55% width on the

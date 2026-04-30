@@ -65,7 +65,7 @@ export default function ScrollSection({ section }: Props) {
       cleanupResize = () => window.removeEventListener("resize", onResize);
 
       const children = el.querySelectorAll<HTMLElement>(
-        ".section-label, .section-heading, .section-body, .section-note",
+        ".section-label, .section-heading, .section-body, .section-note, .section-detail",
       );
 
       const tl = gsap.timeline({ paused: true });
@@ -187,6 +187,32 @@ export default function ScrollSection({ section }: Props) {
           <Typography variant="note" className="section-note mt-3">
             {section.note}
           </Typography>
+        )}
+        {section.details && section.details.length > 0 && (
+          <ul className="mt-6 flex max-w-md flex-col gap-3 md:gap-4">
+            {section.details.map((d) => (
+              <li
+                key={d.name}
+                className={cn(
+                  "section-detail relative overflow-hidden rounded-md",
+                  "border border-white/10 border-l-white/30",
+                  "bg-white/5 backdrop-blur-md",
+                  "p-3 md:p-4",
+                  "shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]",
+                )}
+              >
+                <Typography
+                  variant="label"
+                  className="text-text-on-dark/90 mb-1 block"
+                >
+                  {d.name}
+                </Typography>
+                <p className="font-body text-text-on-dark/75 text-sm leading-snug md:text-[0.95rem]">
+                  {d.description}
+                </p>
+              </li>
+            ))}
+          </ul>
         )}
       </div>
     </section>

@@ -141,24 +141,29 @@ export default function ContactSection({ config }: Props) {
           </Typography>
 
           <ul className="contact-reveal-left mt-12 flex flex-col gap-6">
-            {config.info.map((item) => (
-              <li key={item.label} className="flex flex-col gap-1">
-                <Typography variant="label" className="text-white/45">
-                  {item.label}
-                </Typography>
-                <a
-                  href={item.href}
-                  className={cn(
-                    "font-display text-text-on-dark text-xl md:text-2xl lg:text-3xl",
-                    "w-fit tracking-[0.01em] lowercase",
-                    "border-b border-transparent transition-[color,border-color] duration-300",
-                    "hover:text-accent hover:border-accent",
-                  )}
-                >
-                  {item.value}
-                </a>
-              </li>
-            ))}
+            {config.info.map((item) => {
+              const isExternal = /^https?:\/\//.test(item.href);
+              return (
+                <li key={item.label} className="flex flex-col gap-1">
+                  <Typography variant="label" className="text-white/45">
+                    {item.label}
+                  </Typography>
+                  <a
+                    href={item.href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noreferrer noopener" : undefined}
+                    className={cn(
+                      "font-display text-text-on-dark text-xl md:text-2xl lg:text-3xl",
+                      "w-fit tracking-[0.01em] lowercase",
+                      "border-b border-transparent transition-[color,border-color] duration-300",
+                      "hover:text-accent hover:border-accent",
+                    )}
+                  >
+                    {item.value}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="contact-reveal-left mt-14">
@@ -220,6 +225,20 @@ export default function ContactSection({ config }: Props) {
           </div>
 
           <div className="contact-reveal-right relative">
+            <input
+              id="contact-phone"
+              name="phone"
+              type="tel"
+              placeholder="+61 400 000 000"
+              autoComplete="tel"
+              className={FIELD_BASE}
+            />
+            <label htmlFor="contact-phone" className={LABEL_BASE}>
+              Phone
+            </label>
+          </div>
+
+          <div className="contact-reveal-right relative">
             <select
               id="contact-service"
               name="service"
@@ -240,7 +259,7 @@ export default function ContactSection({ config }: Props) {
               ))}
             </select>
             <label htmlFor="contact-service" className={LABEL_BASE}>
-              What do you need
+              What do you help with?
             </label>
             <span
               aria-hidden="true"
@@ -267,10 +286,10 @@ export default function ContactSection({ config }: Props) {
           <div className="contact-reveal-right flex flex-col gap-4 pt-4 sm:flex-row sm:items-center sm:justify-between">
             <Button type="submit" disabled={status === "sending"}>
               {status === "sending"
-                ? "Sending…"
+                ? "Connecting…"
                 : status === "sent"
-                  ? "Message sent"
-                  : "Send Message"}
+                  ? "Connected"
+                  : "Connect"}
             </Button>
 
             <p

@@ -1,5 +1,6 @@
 // src/components/organisms/Loader/Loader.tsx
 "use client";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 interface Props {
@@ -36,7 +37,15 @@ export default function Loader({ progress }: Props) {
       role="status"
       aria-label="Loading"
     >
-      <span className="font-display text-text-on-dark mb-6 text-2xl tracking-[0.3em] uppercase">
+      <Image
+        src="/logo/black/darkmode-logo-only.jpeg"
+        alt="Vivid Geeks"
+        width={140}
+        height={140}
+        priority
+        className="mb-8 h-auto w-30 opacity-90 mix-blend-screen md:w-35"
+      />
+      <span className="font-display text-text-on-dark mb-6 text-xs tracking-[0.4em] uppercase opacity-70">
         Loading
       </span>
       <div

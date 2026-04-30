@@ -48,12 +48,18 @@ interface SectionBase {
   leave?: number;
 }
 
+export interface ServiceDetail {
+  name: string;
+  description: string;
+}
+
 export interface ContentSection extends SectionBase {
   type: "content";
   label: string;
   heading: string;
   body: string;
   note?: string;
+  details?: ServiceDetail[];
 }
 
 export interface StatItem {
@@ -97,7 +103,23 @@ export const SECTIONS_CONFIG: Section[] = [
     label: "002 / Search & Intelligence",
     heading: "Search & Intelligence",
     body: "Own the moment your customer is looking for a solution.",
-    note: "SEO · AEO · Google Ads",
+    details: [
+      {
+        name: "SEO",
+        description:
+          "Own the first page of Google and let your customers find you before they find the competition.",
+      },
+      {
+        name: "AEO",
+        description:
+          "Become the “chosen answer” when customers ask AI and voice assistants for recommendations.",
+      },
+      {
+        name: "Google Ads",
+        description:
+          "Cut to the front of the line and get your business in front of buyers the second they’re ready to spend.",
+      },
+    ],
   },
   {
     id: "growth-performance",
@@ -107,7 +129,23 @@ export const SECTIONS_CONFIG: Section[] = [
     label: "003 / Growth & Performance",
     heading: "Growth & Performance",
     body: "Profitable scaling through data-backed customer acquisition.",
-    note: "Performance Marketing · Meta Ads · Lead Generation",
+    details: [
+      {
+        name: "Performance Marketing",
+        description:
+          "High-octane growth strategies where every dollar spent is tracked against the profit it generates.",
+      },
+      {
+        name: "Meta Ads",
+        description:
+          "Stop the scroll and put your offer in front of your ideal customers while they’re most engaged.",
+      },
+      {
+        name: "Lead Generation",
+        description:
+          "A consistent, predictable stream of qualified inquiries delivered straight to your inbox.",
+      },
+    ],
   },
   {
     id: "creative-brand",
@@ -117,7 +155,23 @@ export const SECTIONS_CONFIG: Section[] = [
     label: "004 / Creative & Brand",
     heading: "Creative & Brand Identity",
     body: "Building the trust factor that justifies premium pricing.",
-    note: "Logo · Graphics · Video · Content",
+    details: [
+      {
+        name: "Logo & Graphic Design",
+        description:
+          "Premium visuals that make your business look like the market leader you are.",
+      },
+      {
+        name: "Video Editing",
+        description:
+          "Compelling storytelling that captures attention and turns casual viewers into brand fans.",
+      },
+      {
+        name: "Content Creation",
+        description:
+          "Expertly crafted posts that build your authority and keep your brand top-of-mind.",
+      },
+    ],
   },
   {
     id: "digital-infrastructure",
@@ -127,7 +181,18 @@ export const SECTIONS_CONFIG: Section[] = [
     label: "005 / Digital Infrastructure",
     heading: "Digital Infrastructure",
     body: "The digital foundation that turns traffic into revenue.",
-    note: "Web Design & Development · CRM & Sales Funnel",
+    details: [
+      {
+        name: "Web Design & Development",
+        description:
+          "A high-converting digital storefront that works 24/7 to turn visitors into paying customers.",
+      },
+      {
+        name: "CRM & Sales Funnels",
+        description:
+          "An automated “sales machine” that captures, tracks, and closes deals while you sleep.",
+      },
+    ],
   },
   {
     id: "engagement-retention",
@@ -137,7 +202,18 @@ export const SECTIONS_CONFIG: Section[] = [
     label: "006 / Engagement & Retention",
     heading: "Engagement & Retention",
     body: "Turning one-time buyers into lifetime brand advocates.",
-    note: "Email Marketing · Social Media Management",
+    details: [
+      {
+        name: "Email Marketing",
+        description:
+          "Direct access to your customers’ pockets to drive repeat sales and massive lifetime value.",
+      },
+      {
+        name: "Social Media Management",
+        description:
+          "We handle the noise so you can focus on running your business, keeping your community active and loyal.",
+      },
+    ],
   },
   {
     id: "stats",
@@ -211,20 +287,24 @@ export const CONTACT_CONFIG: ContactConfig = {
   info: [
     {
       label: "Email",
-      value: "hello@vividgeeks.com",
-      href: "mailto:hello@vividgeeks.com",
+      value: "hello@vividgeeksdigital.com.au",
+      href: "mailto:hello@vividgeeksdigital.com.au",
     },
-    { label: "Phone", value: "+1 (415) 555-0134", href: "tel:+14155550134" },
     {
-      label: "Studio",
-      value: "San Francisco · Remote",
-      href: "https://maps.google.com/?q=San+Francisco",
+      label: "WhatsApp",
+      value: "+61 403 372 187",
+      href: "https://wa.me/61403372187",
+    },
+    {
+      label: "Headquarters",
+      value: "Sydney, Australia",
+      href: "https://maps.google.com/?q=Sydney+Australia",
     },
   ],
   socials: [
     { label: "Instagram", href: "https://instagram.com" },
     { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "X / Twitter", href: "https://twitter.com" },
+    { label: "Facebook", href: "https://facebook.com" },
   ],
   services: [
     "Search & Intelligence",
