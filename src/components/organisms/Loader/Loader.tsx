@@ -33,12 +33,12 @@ export default function Loader({ progress }: Props) {
   return (
     <div
       ref={ref}
-      className="bg-bg-dark fixed inset-0 z-[100] flex flex-col items-center justify-center"
+      className="bg-bg-dark fixed inset-0 z-100 flex flex-col items-center justify-center"
       role="status"
       aria-label="Loading"
     >
       <Image
-        src="/logo/black/darkmode-logo-only.jpeg"
+        src="/logo/black/darkmode-logo-only.png"
         alt="Vivid Geeks"
         width={140}
         height={140}
@@ -53,7 +53,7 @@ export default function Loader({ progress }: Props) {
         aria-hidden="true"
       >
         <div
-          className="bg-accent absolute inset-y-0 left-0 transition-[width] duration-[250ms] ease-out"
+          className="bg-accent absolute inset-y-0 left-0 transition-[width] duration-250 ease-out"
           style={{ width: `${pct}%` }}
         />
       </div>
