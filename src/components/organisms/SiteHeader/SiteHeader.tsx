@@ -8,6 +8,8 @@
 // Hash links are prefixed with "/" so they work from any route, not just
 // the home page. Plain "#contact" would resolve to "/work#contact" when
 // the user is on /work and silently do nothing.
+import Image from "next/image";
+
 const NAV_LINKS = [
   { label: "Features", href: "/#features" },
   { label: "Work", href: "/work" },
@@ -36,9 +38,16 @@ export default function SiteHeader() {
       </div>
 
       <div className="relative flex w-full items-center justify-between px-6 py-6 md:px-12 lg:px-20 xl:px-28">
-        <span className="font-display text-text-on-dark text-2xl tracking-[0.15em] uppercase">
-          Vivid Geeks
-        </span>
+        <a href="/" aria-label="Vivid Geeks home">
+          <Image
+            src="/logo/black/darkmode-horizontal.png"
+            alt="Vivid Geeks"
+            width={160}
+            height={40}
+            className="h-8 w-auto"
+            priority
+          />
+        </a>
         <nav className="hidden gap-10 md:flex" aria-label="Main navigation">
           {NAV_LINKS.map((link) => (
             <a

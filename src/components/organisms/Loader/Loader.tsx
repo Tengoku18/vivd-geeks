@@ -49,7 +49,7 @@ export default function Loader({ progress }: Props) {
         Loading
       </span>
       <div
-        className="relative h-px w-48 overflow-hidden bg-white/10"
+        className="relative h-0.5 w-48 overflow-hidden rounded-full bg-white/10"
         aria-hidden="true"
       >
         <div

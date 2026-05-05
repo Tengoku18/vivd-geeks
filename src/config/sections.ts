@@ -353,9 +353,9 @@ export const CONTACT_CONFIG: ContactConfig = {
     },
   ],
   socials: [
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "Facebook", href: "https://facebook.com" },
+    { label: "Instagram", href: "https://www.instagram.com/vividgeeksdigital" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/best-ever-digital-marketing-agency/" },
+    { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61574347935078" },
   ],
   services: [
     "Search & Intelligence",
@@ -470,9 +470,9 @@ export const FOOTER_CONFIG: FooterConfig = {
     {
       title: "Connect",
       links: [
-        { label: "Instagram", href: "https://instagram.com" },
-        { label: "LinkedIn", href: "https://linkedin.com" },
-        { label: "Facebook", href: "https://facebook.com" },
+        { label: "Instagram", href: "https://www.instagram.com/vividgeeksdigital" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/company/best-ever-digital-marketing-agency/" },
+        { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61574347935078" },
       ],
     },
   ],
