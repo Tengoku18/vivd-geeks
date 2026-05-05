@@ -79,6 +79,18 @@
   /* Tailwind v4 / modern Chrome dropped the default pointer cursor on
      <button>. Restore it globally so every interactive control reads as
      clickable without needing cursor-pointer on each one. */
+  /* Override browser autofill background on dark-themed inputs */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #0d0d0d inset !important;
+    -webkit-text-fill-color: #f0ede8 !important;
+    caret-color: #f0ede8;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   summary {

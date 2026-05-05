@@ -44,7 +44,7 @@ export default function SiteHeader() {
             alt="Vivid Geeks"
             width={160}
             height={40}
-            className="h-8 w-auto"
+            className="h-11 w-auto"
             priority
           />
         </a>

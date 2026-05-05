@@ -6,12 +6,13 @@ import { SectionHeader } from "@/components/molecules/SectionHeader/SectionHeade
 import { Typography } from "@/components/atoms/Typography";
 import { Button } from "@/components/atoms/Button";
 import { cn } from "@/lib/cn";
+import SuccessModal from "@/components/organisms/SuccessModal/SuccessModal";
 
 interface Props {
   config: ContactConfig;
 }
 
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sending" | "error";
 
 const FIELD_BASE =
   "peer w-full border-b border-white/15 bg-transparent py-3 " +
@@ -20,16 +21,20 @@ const FIELD_BASE =
   "transition-colors duration-300 focus:border-accent focus:outline-none";
 
 const LABEL_BASE =
-  "pointer-events-none absolute left-0 top-3 origin-left " +
-  "font-body text-[0.8rem] tracking-[0.25em] uppercase text-white/50 " +
+  "pointer-events-none absolute left-0 origin-left " +
+  "font-body tracking-[0.25em] uppercase " +
   "transition-all duration-300 " +
-  "peer-placeholder-shown:top-3 peer-placeholder-shown:text-[0.9rem] peer-placeholder-shown:text-white/40 " +
-  "peer-focus:-top-3 peer-focus:text-[0.7rem] peer-focus:text-accent " +
-  "-top-3 text-[0.7rem]";
+  // default (empty, unfocused): sit over the placeholder area
+  "top-3 text-[0.9rem] text-white/40 " +
+  // has a value: float up
+  "peer-[&:not(:placeholder-shown)]:-top-3 peer-[&:not(:placeholder-shown)]:text-[0.7rem] peer-[&:not(:placeholder-shown)]:text-white/50 " +
+  // focused: float up with accent tint (overrides has-value color)
+  "peer-focus:-top-3 peer-focus:text-[0.7rem] peer-focus:text-accent";
 
 export default function ContactSection({ config }: Props) {
   const ref = useRef<HTMLElement>(null);
   const [status, setStatus] = useState<Status>("idle");
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -86,11 +91,26 @@ export default function ContactSection({ config }: Props) {
     e.preventDefault();
     if (status === "sending") return;
     setStatus("sending");
-    // Placeholder: replace with fetch() to a real endpoint.
-    await new Promise((r) => setTimeout(r, 900));
-    setStatus("sent");
-    (e.currentTarget as HTMLFormElement).reset();
-    setTimeout(() => setStatus("idle"), 4000);
+
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error("Request failed");
+
+      form.reset();
+      setStatus("idle");
+      setShowModal(true);
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+    }
   };
 
   return (
@@ -285,11 +305,7 @@ export default function ContactSection({ config }: Props) {
 
           <div className="contact-reveal-right flex flex-col gap-4 pt-4 sm:flex-row sm:items-center sm:justify-between">
             <Button type="submit" disabled={status === "sending"}>
-              {status === "sending"
-                ? "Connecting…"
-                : status === "sent"
-                  ? "Connected"
-                  : "Connect"}
+              {status === "sending" ? "Connecting…" : "Connect"}
             </Button>
 
             <p
@@ -297,14 +313,16 @@ export default function ContactSection({ config }: Props) {
               aria-live="polite"
               className={cn(
                 "font-body text-[0.75rem] tracking-[0.2em] uppercase transition-opacity duration-300",
-                status === "sent" ? "text-accent opacity-100" : "opacity-0",
+                status === "error" ? "text-red-400 opacity-100" : "opacity-0",
               )}
             >
-              Thanks — we&apos;ll reply within 24h.
+              Something went wrong — please try again.
             </p>
           </div>
         </form>
       </div>
+
+      <SuccessModal open={showModal} onClose={() => setShowModal(false)} />
     </section>
   );
 }
