@@ -43,7 +43,8 @@ export default function Loader({ progress }: Props) {
         width={140}
         height={140}
         priority
-        className="mb-8 h-auto w-30 opacity-90 mix-blend-screen md:w-35"
+        className="mb-8 w-30 opacity-90 mix-blend-screen md:w-35"
+        style={{ height: "auto" }}
       />
       <span className="font-display text-text-on-dark mb-6 text-xs tracking-[0.4em] uppercase opacity-70">
         Loading

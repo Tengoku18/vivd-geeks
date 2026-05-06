@@ -18,7 +18,8 @@ import { Typography } from "@/components/atoms/Typography";
 import { Typewriter } from "@/components/atoms/Typewriter/Typewriter";
 import HeroPlayground from "@/components/organisms/HeroPlayground/HeroPlayground";
 import HeroOrb3DLazy from "@/components/organisms/HeroOrb3D/HeroOrb3DLazy";
-import ShaderBackgroundLazy from "@/components/organisms/ShaderBackground/ShaderBackgroundLazy";
+// import ShaderBackgroundLazy from "@/components/organisms/ShaderBackground/ShaderBackgroundLazy";
+import ShaderGradientBgLazy from "@/components/organisms/ShaderGradientBg/ShaderGradientBgLazy";
 import HeroShells3DLazy from "@/components/organisms/HeroShells3D/HeroShells3DLazy";
 
 interface Props {
@@ -35,10 +36,14 @@ export default function HeroSection({ config }: Props) {
       id="hero-section"
       className="bg-bg-dark pointer-events-none fixed inset-0 z-20 flex flex-col items-start justify-center transition-opacity duration-75 ease-linear"
     >
-      {/* ── Shader gradient — full-screen animated WebGL backdrop (desktop) ─ */}
-      {/* Sits at z-0 behind everything. bg-bg-dark on the section provides
-          the mobile fallback so this is hidden on small screens. */}
+      {/* ── Shader gradient — full-screen animated WebGL backdrop ───────── */}
+      {/* Sits at z-0 behind everything, on every breakpoint. bg-bg-dark on
+          the section is now just a flash-of-bg fallback while the canvas
+          mounts. */}
+      {/* Metaballs raymarcher — replaced by ShaderGradient waterPlane.
       <ShaderBackgroundLazy className="pointer-events-none absolute inset-0 z-0 hidden md:block" />
+      */}
+      <ShaderGradientBgLazy className="pointer-events-none absolute inset-0 z-0" />
 
       {/* ── Right panel — all 3D layers commented out for now ─
       <HeroShells3DLazy className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-[52%] md:block" />
