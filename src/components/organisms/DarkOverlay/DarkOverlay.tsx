@@ -58,7 +58,7 @@ export default function DarkOverlay({ enter, leave }: Props) {
   return (
     <div
       ref={ref}
-      className="pointer-events-none fixed top-0 left-0 z-[8] h-dvh w-screen bg-black opacity-0 transform-gpu will-change-[opacity]"
+      className="pointer-events-none fixed inset-x-0 top-0 z-8 h-dvh bg-black opacity-0 transform-gpu will-change-[opacity]"
       aria-hidden="true"
     />
   );

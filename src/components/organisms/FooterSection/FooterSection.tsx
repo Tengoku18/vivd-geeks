@@ -1,6 +1,7 @@
 // src/components/organisms/FooterSection/FooterSection.tsx
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import type { FooterConfig } from "@/config/sections";
 import { Typography } from "@/components/atoms/Typography";
@@ -41,6 +42,13 @@ export default function FooterSection({ config }: Props) {
       );
       const ctaVisual = el.querySelector<HTMLElement>(".footer-cta-visual");
       const reveals = el.querySelectorAll<HTMLElement>(".footer-reveal");
+
+      const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!motionOk) {
+        gsap.set([...ctaLines, ...ctaSupporting, ...reveals], { opacity: 1, y: 0 });
+        if (ctaVisual) gsap.set(ctaVisual, { opacity: 1, scale: 1 });
+        return;
+      }
 
       const tl = gsap.timeline({ paused: true });
 
@@ -307,9 +315,15 @@ export default function FooterSection({ config }: Props) {
         {/* ── Columns ──────────────────────────────────────────────────── */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.4fr_repeat(3,1fr)] md:gap-10">
           <div className="footer-reveal flex flex-col gap-5">
-            <span className="font-display text-text-on-dark text-2xl tracking-[0.15em] uppercase">
-              Vivid Geeks
-            </span>
+            <Link href="/" aria-label="Vivid Geeks home" className="w-fit">
+              <Image
+                src="/logo/black/darkmode-horizontal.png"
+                alt="Vivid Geeks"
+                width={200}
+                height={50}
+                className="h-12 w-auto"
+              />
+            </Link>
             <Typography variant="body" className="max-w-sm text-white/70">
               {config.tagline}
             </Typography>

@@ -68,6 +68,12 @@ export default function ScrollSection({ section }: Props) {
         ".section-label, .section-heading, .section-body, .section-note, .section-detail",
       );
 
+      const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!motionOk) {
+        gsap.set(children, { opacity: 1, y: 0, x: 0, scale: 1, rotation: 0, clipPath: "none" });
+        return;
+      }
+
       const tl = gsap.timeline({ paused: true });
       const enter = (section.enter ?? 0) / 100;
       const leave = (section.leave ?? 0) / 100;
@@ -132,8 +138,8 @@ export default function ScrollSection({ section }: Props) {
           tl.from(children, {
             clipPath: "inset(100% 0 0 0)",
             opacity: 0,
-            stagger: 0.15,
-            duration: 1.2,
+            stagger: 0.13,
+            duration: 0.9,
             ease: "power4.inOut",
           });
           break;
@@ -195,7 +201,7 @@ export default function ScrollSection({ section }: Props) {
                 key={d.name}
                 className={cn(
                   "section-detail relative overflow-hidden rounded-md",
-                  "border border-white/10 border-l-white/30",
+                  "border border-white/10 border-l-accent/60",
                   "bg-white/5 backdrop-blur-md",
                   "p-3 md:p-4",
                   "shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]",

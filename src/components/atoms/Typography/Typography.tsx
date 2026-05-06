@@ -61,7 +61,8 @@ export function Typography<T extends ElementType = "p">({
   children,
   ...rest
 }: TypographyProps<T>) {
-  const Component = (as ?? DEFAULT_ELEMENT[variant]) as ElementType;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Component = (as ?? DEFAULT_ELEMENT[variant]) as any;
   return (
     <Component className={cn(VARIANT_CLASSES[variant], className)} {...rest}>
       {children}

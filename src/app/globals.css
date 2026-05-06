@@ -5,6 +5,36 @@
   50% { opacity: 0; }
 }
 
+/* Hero heading entrance — each line slides up from 28 px and fades in.
+   Use animation-fill-mode: both so elements start invisible before the
+   delay fires. Stagger is applied via inline animation-delay style props. */
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0% 0);
+  }
+}
+
+/* Scroll indicator bob — a gentler float replacing the old bounce */
+@keyframes scroll-bob {
+  0%, 100% { transform: translateY(0); opacity: 0.35; }
+  50%       { transform: translateY(6px); opacity: 0.65; }
+}
+
+/* Soft scroll indicator — replaces bounce for a premium feel */
+@keyframes scroll-hint {
+  0%   { transform: translateY(-4px); opacity: 0; }
+  35%  { opacity: 0.55; }
+  75%  { transform: translateY(5px); opacity: 0.25; }
+  100% { transform: translateY(-4px); opacity: 0; }
+}
+
 /* Footer/Contact ambient motion. Subtle by design — these run forever, so
    low amplitude + long durations keep them out of the user's focus. */
 @keyframes rotate-slow {
@@ -41,8 +71,31 @@
   --color-text-on-dark: #f0ede8;
   --color-accent: #c8a97e;
 
+  /* Brand palette — used on case studies and the WebGL hero. The gold accent
+     above is the warm, hospitable face; the navy/maroon/slate is the
+     architectural, premium face. They share the dark bg but tell different
+     stories on different surfaces. */
+  --color-navy-deep:     #0B1D35; /* Primary Navy — Deep Obsidian */
+  --color-maroon:        #7B1113; /* Accent Maroon — Heritage Red */
+  --color-maroon-bright: #B8252A; /* Brightened maroon for stat numerals; the
+                                     base maroon is too dark to read large */
+  --color-slate:         #F4F7FA; /* Neutral Slate — Architect Grey */
+
   --font-display: var(--font-display-var), sans-serif;
   --font-body: var(--font-body-var), sans-serif;
+}
+
+/* Drop-cap style — first letter of the first chapter paragraph reads like
+   editorial print. Subtle, only fires when explicitly opted in to avoid
+   nuking smaller body text elsewhere. */
+.cs-dropcap::first-letter {
+  font-family: var(--font-display);
+  float: left;
+  font-size: 4.2em;
+  line-height: 0.85;
+  padding: 0.1em 0.12em 0 0;
+  color: var(--color-maroon-bright);
+  font-weight: 600;
 }
 
 /* Custom resets and globals live inside @layer base so that Tailwind's
@@ -66,6 +119,22 @@
   html {
     /* Lenis handles smooth scroll — keep native behaviour off. */
     scroll-behavior: auto;
+    /* Belt-and-braces against horizontal scroll on mobile.
+         - `overflow-x: clip` is the strongest containment but Safari pre-16
+           ignored it. `overflow-x: hidden` is the universal fallback set
+           via the cascade below.
+         - `overscroll-behavior-x: none` stops the browser's pull-to-refresh
+           horizontal rubber-banding.
+         - `touch-action: pan-y pinch-zoom` tells mobile browsers this root
+           accepts vertical pans + pinch-to-zoom only — no horizontal swipe
+           panning, which is what produces the "page moves left/right"
+           behaviour even when no actual scroll exists.
+       Combined, these stop the user's swipe from doing anything on the X
+       axis. */
+    overflow-x: hidden;
+    overflow-x: clip;
+    overscroll-behavior-x: none;
+    touch-action: pan-y pinch-zoom;
   }
 
   body {
@@ -73,6 +142,10 @@
     color: var(--color-text-primary);
     font-family: var(--font-body);
     overflow-x: hidden;
+    overflow-x: clip;
+    overscroll-behavior-x: none;
+    width: 100%;
+    max-width: 100vw;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -89,6 +162,16 @@
     -webkit-text-fill-color: #f0ede8 !important;
     caret-color: #f0ede8;
     transition: background-color 5000s ease-in-out 0s;
+  }
+
+  /* Respect user motion preference — disable CSS animations & transitions */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 
   button:not(:disabled),

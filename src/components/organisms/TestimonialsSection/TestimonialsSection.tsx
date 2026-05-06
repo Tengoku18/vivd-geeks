@@ -27,6 +27,13 @@ export default function TestimonialsSection({ config }: Props) {
       const intro = el.querySelectorAll<HTMLElement>(".testimonial-intro");
       const track = el.querySelector<HTMLElement>(".testimonial-track");
 
+      const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!motionOk) {
+        gsap.set(intro, { opacity: 1, y: 0 });
+        if (track) gsap.set(track, { opacity: 1 });
+        return;
+      }
+
       const tl = gsap.timeline({ paused: true });
       tl.from(intro, {
         y: 40,

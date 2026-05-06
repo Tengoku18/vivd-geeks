@@ -77,7 +77,7 @@ export default function MarqueeText({
   return (
     <div
       ref={wrapRef}
-      className="pointer-events-none fixed top-[44vh] left-0 z-10 w-screen overflow-hidden opacity-0 select-none"
+      className="pointer-events-none fixed inset-x-0 top-[44vh] z-10 overflow-hidden opacity-0 select-none"
       aria-hidden="true"
     >
       <div

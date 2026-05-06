@@ -63,7 +63,7 @@ export default function GlassOverlay({ enter, leave }: Props) {
   return (
     <div
       ref={ref}
-      className="pointer-events-none fixed top-0 left-0 z-[7] h-dvh w-screen bg-black/45 opacity-0 transform-gpu will-change-[opacity]"
+      className="pointer-events-none fixed inset-x-0 top-0 z-7 h-dvh bg-black/45 opacity-0 transform-gpu will-change-[opacity]"
       aria-hidden="true"
     />
   );

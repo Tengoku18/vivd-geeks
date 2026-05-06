@@ -159,7 +159,7 @@ export default function CanvasScene({
     // BUG FIX: initial clip-path uses full "at 50% 50%" syntax for Safari.
     <div
       ref={wrapRef}
-      className="fixed inset-0 z-[1] h-screen w-screen will-change-[clip-path]"
+      className="fixed inset-0 z-[1] will-change-[clip-path]"
       style={{ clipPath: "circle(0% at 50% 50%)" }}
     >
       <canvas

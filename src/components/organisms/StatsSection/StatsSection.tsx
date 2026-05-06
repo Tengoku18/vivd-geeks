@@ -48,6 +48,18 @@ export default function StatsSection({ section }: Props) {
       //
       // Correct pattern: one ScrollTrigger watches progress. When enter threshold
       // is crossed for the first time, animate all counters once and never again.
+      const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // If motion is reduced, show final values immediately without counting
+      if (!motionOk) {
+        el.querySelectorAll<HTMLElement>(".stat-number").forEach((num) => {
+          const target = parseFloat(num.dataset.value ?? "0");
+          const decimals = parseInt(num.dataset.decimals ?? "0", 10);
+          num.textContent = decimals === 0 ? String(Math.round(target)) : target.toFixed(decimals);
+        });
+        return;
+      }
+
       trigger = ScrollTrigger.create({
         trigger: scrollEl,
         start: "top top",

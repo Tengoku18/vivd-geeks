@@ -54,6 +54,12 @@ export default function ContactSection({ config }: Props) {
         ".contact-reveal-right",
       );
 
+      const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!motionOk) {
+        gsap.set([...leftChildren, ...rightChildren], { opacity: 1, y: 0, x: 0 });
+        return;
+      }
+
       const tl = gsap.timeline({ paused: true });
       tl.from(leftChildren, {
         y: 60,

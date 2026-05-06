@@ -31,6 +31,12 @@ export default function FAQSection({ config }: Props) {
       const introParts = el.querySelectorAll<HTMLElement>(".faq-intro");
       const items = el.querySelectorAll<HTMLElement>(".faq-item");
 
+      const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!motionOk) {
+        gsap.set([...introParts, ...items], { opacity: 1, y: 0 });
+        return;
+      }
+
       const tl = gsap.timeline({ paused: true });
       tl.from(introParts, {
         y: 40,

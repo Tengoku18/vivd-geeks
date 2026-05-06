@@ -13,6 +13,8 @@ import {
 import { distributeScrollRanges, getOverlayRange } from "@/lib/scrollUtils";
 import { useLenis } from "@/hooks/useLenis";
 
+import ScrollProgressBar from "@/components/atoms/ScrollProgressBar/ScrollProgressBar";
+import CustomCursor from "@/components/organisms/CustomCursor/CustomCursor";
 import Loader from "@/components/organisms/Loader/Loader";
 import SiteHeader from "@/components/organisms/SiteHeader/SiteHeader";
 import HeroSection from "@/components/organisms/HeroSection/HeroSection";
@@ -40,6 +42,9 @@ export default function Home() {
 
   return (
     <>
+      {/* Global UX chrome — rendered above everything including the loader */}
+      <ScrollProgressBar />
+      <CustomCursor />
       <Loader progress={loadProgress} />
       <SiteHeader />
       <HeroSection config={HERO_CONFIG} />

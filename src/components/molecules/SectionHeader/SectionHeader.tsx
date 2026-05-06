@@ -23,9 +23,12 @@ export function SectionHeader({
 }: Props) {
   return (
     <div className={cn("flex flex-col", className)}>
-      <Typography variant="label" className="section-label mb-3 block">
-        {label}
-      </Typography>
+      <span className="section-label mb-3 flex items-center gap-2.5">
+        <span aria-hidden="true" className="bg-accent inline-block h-px w-5 shrink-0" />
+        <Typography variant="label" as="span">
+          {label}
+        </Typography>
+      </span>
       <Typography as={headingAs} variant="h1" className="section-heading mt-2">
         {heading}
       </Typography>
