@@ -22,6 +22,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { getLenis } from "@/lib/lenisInstance";
 
@@ -75,27 +76,27 @@ export default function SiteHeader() {
         </div>
 
         <div className="relative flex w-full items-center justify-between gap-3 px-5 py-4 sm:px-6 sm:py-5 md:px-12 md:py-6 lg:px-20 xl:px-28">
-          <a href="/" aria-label="Vivid Geeks home" className="relative z-10 shrink-0">
+          <Link href="/" aria-label="Vivid Geeks home" className="relative z-10 shrink-0">
             <Image
               src="/logo/black/darkmode-horizontal.png"
-              alt="Vivid Geeks"
+              alt="Vivid Geeks Digital — digital agency"
               width={160}
               height={40}
               className="h-9 w-auto md:h-11"
               priority
             />
-          </a>
+          </Link>
 
           {/* ── Desktop nav (md+) ───────────────────────────────────────── */}
           <nav className="hidden gap-10 md:flex" aria-label="Main navigation">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="font-body hover:text-text-on-dark text-[0.8rem] tracking-[0.25em] text-white/45 uppercase transition-colors duration-200"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -179,7 +180,7 @@ export default function SiteHeader() {
           <ul className="flex flex-col">
             {NAV_LINKS.map((link, i) => (
               <li key={link.href} className="border-b border-white/10 last:border-b-0">
-                <a
+                <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className={cn(
@@ -202,7 +203,7 @@ export default function SiteHeader() {
                   >
                     →
                   </span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

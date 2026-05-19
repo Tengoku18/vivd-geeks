@@ -5,9 +5,17 @@ import LegalPageShell, {
 } from "@/components/organisms/LegalPageShell/LegalPageShell";
 
 export const metadata: Metadata = {
-  title: "Terms · Vivid Geeks",
+  title: "Terms of Service",
   description:
     "The terms that govern your use of the Vivid Geeks website and our working relationship.",
+  alternates: { canonical: "/terms" },
+  openGraph: {
+    type: "article",
+    url: "/terms",
+    title: "Terms of Service — Vivid Geeks",
+    description:
+      "The terms that govern your use of the Vivid Geeks website and our working relationship.",
+  },
 };
 
 export default function TermsPage() {

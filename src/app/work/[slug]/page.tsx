@@ -35,6 +35,13 @@ import FooterSection from "@/components/organisms/FooterSection/FooterSection";
 import LenisInit from "@/components/atoms/LenisInit/LenisInit";
 import AnimatedMetric from "@/components/atoms/AnimatedMetric";
 import CaseStudyChoreography from "@/components/organisms/CaseStudyChoreography";
+import JsonLd from "@/components/atoms/JsonLd/JsonLd";
+import {
+  SITE_URL,
+  absoluteUrl,
+  breadcrumbSchema,
+  caseStudySchema,
+} from "@/lib/seo";
 
 const GRAIN_BG =
   "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.9'/></svg>\")";
@@ -58,9 +65,27 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = WORK_PROJECTS.find((p) => p.slug === slug);
   if (!project) return {};
+  const title = `${project.title} — ${project.discipline}`;
+  const description = project.summary;
+  const url = `/work/${project.slug}`;
+  const ogImage = project.coverImage ?? `${SITE_URL}/opengraph-image.jpeg`;
   return {
-    title: `${project.title} — Vivid Geeks Work`,
-    description: project.summary,
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      url: absoluteUrl(url),
+      title,
+      description,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: project.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
   };
 }
 
@@ -79,6 +104,23 @@ export default async function CaseStudyPage({
 
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Work", url: "/work" },
+            { name: project.title, url: `/work/${project.slug}` },
+          ]),
+          caseStudySchema({
+            title: project.title,
+            description: project.summary,
+            url: `/work/${project.slug}`,
+            image: project.coverImage,
+            client: project.client,
+            datePublished: `${project.year}-01-01`,
+          }),
+        ]}
+      />
       <LenisInit />
       <CaseStudyChoreography />
       <SiteHeader />

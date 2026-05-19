@@ -5,9 +5,17 @@ import LegalPageShell, {
 } from "@/components/organisms/LegalPageShell/LegalPageShell";
 
 export const metadata: Metadata = {
-  title: "Privacy · Vivid Geeks",
+  title: "Privacy Policy",
   description:
     "How Vivid Geeks collects, uses, and protects the information you share with us.",
+  alternates: { canonical: "/privacy" },
+  openGraph: {
+    type: "article",
+    url: "/privacy",
+    title: "Privacy Policy — Vivid Geeks",
+    description:
+      "How Vivid Geeks collects, uses, and protects the information you share with us.",
+  },
 };
 
 export default function PrivacyPage() {

@@ -1,28 +1,58 @@
-// src/app/work/page.tsx
-// /work — dark, consultancy-style archive. Uses the same SiteHeader,
-// FooterSection, and Lenis smooth-scroll setup as the home page so the
-// transition between routes feels like one site, not two.
+// /work — dark, consultancy-style archive. Server shell exports metadata
+// and structured data; the interactive archive lives in WorkPageClient.
 
-"use client";
+import type { Metadata } from "next";
+import WorkPageClient from "./WorkPageClient";
+import JsonLd from "@/components/atoms/JsonLd/JsonLd";
+import { WORK_PROJECTS } from "@/config/work";
+import { SITE_URL, breadcrumbSchema, absoluteUrl } from "@/lib/seo";
 
-import { useLenis } from "@/hooks/useLenis";
-import { FOOTER_CONFIG } from "@/config/sections";
-import SiteHeader from "@/components/organisms/SiteHeader/SiteHeader";
-import FooterSection from "@/components/organisms/FooterSection/FooterSection";
-import { WorkArchive } from "@/components/organisms/WorkArchive";
+const TITLE = "Work — Case Studies & Client Outcomes";
+const DESCRIPTION =
+  "Selected case studies from Vivid Geeks — SEO, paid media, brand identity, web builds, and growth systems with measured outcomes from the engagement ledger.";
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: "/work" },
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/work`,
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+};
 
 export default function WorkPage() {
-  // Drives SiteHeader hide/show + glass backdrop fade on scroll. The
-  // header reads scroll position via Lenis (see useLenis.ts), so without
-  // this hook the nav would never collapse and the glass would never
-  // fade in.
-  useLenis();
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Vivid Geeks — Selected Work",
+    itemListElement: WORK_PROJECTS.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: absoluteUrl(`/work/${p.slug}`),
+      name: p.title,
+    })),
+  };
 
   return (
     <>
-      <SiteHeader />
-      <WorkArchive />
-      <FooterSection config={FOOTER_CONFIG} />
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Work", url: "/work" },
+          ]),
+          itemListSchema,
+        ]}
+      />
+      <WorkPageClient />
     </>
   );
 }
