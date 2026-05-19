@@ -41,6 +41,8 @@ import {
   absoluteUrl,
   breadcrumbSchema,
   caseStudySchema,
+  webPageSchema,
+  articleSchema,
 } from "@/lib/seo";
 
 const GRAIN_BG =
@@ -106,11 +108,39 @@ export default async function CaseStudyPage({
     <>
       <JsonLd
         data={[
+          webPageSchema({
+            url: `/work/${project.slug}`,
+            name: `${project.title} — ${project.discipline}`,
+            description: project.summary,
+            primaryImage: project.coverImage,
+            datePublished: `${project.year}-01-01`,
+            speakableSelectors: ["[data-speakable]", "h1", "blockquote"],
+            mainEntityId: `${absoluteUrl(`/work/${project.slug}`)}#article`,
+            breadcrumb: [
+              { name: "Home", url: "/" },
+              { name: "Work", url: "/work" },
+              { name: project.title, url: `/work/${project.slug}` },
+            ],
+          }),
           breadcrumbSchema([
             { name: "Home", url: "/" },
             { name: "Work", url: "/work" },
             { name: project.title, url: `/work/${project.slug}` },
           ]),
+          articleSchema({
+            headline: `${project.title} — ${project.discipline}`,
+            description: project.summary,
+            url: `/work/${project.slug}`,
+            image: project.coverImage,
+            datePublished: `${project.year}-01-01`,
+            about: project.client,
+            articleBody: project.body.join("\n\n"),
+            keywords: [
+              project.discipline,
+              project.client,
+              ...project.metrics.map((m) => `${m.label} ${m.value}`),
+            ],
+          }),
           caseStudySchema({
             title: project.title,
             description: project.summary,

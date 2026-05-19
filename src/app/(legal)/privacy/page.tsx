@@ -3,6 +3,12 @@ import type { Metadata } from "next";
 import LegalPageShell, {
   LegalSection,
 } from "@/components/organisms/LegalPageShell/LegalPageShell";
+import JsonLd from "@/components/atoms/JsonLd/JsonLd";
+import { webPageSchema } from "@/lib/seo";
+
+const TITLE = "Privacy Policy — Vivid Geeks";
+const DESCRIPTION =
+  "How Vivid Geeks collects, uses, and protects the information you share with us.";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -20,12 +26,25 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPageShell
-      label="Legal · 01"
-      heading="Privacy Policy"
-      effectiveDate="18 April 2026"
-      intro="Vivid Geeks is an independent digital agency based in Sydney, Australia. This policy explains what information we collect when you contact us or book a call, how we use it, and the choices you have."
-    >
+    <>
+      <JsonLd
+        data={webPageSchema({
+          url: "/privacy",
+          name: TITLE,
+          description: DESCRIPTION,
+          datePublished: "2026-04-18",
+          breadcrumb: [
+            { name: "Home", url: "/" },
+            { name: "Privacy", url: "/privacy" },
+          ],
+        })}
+      />
+      <LegalPageShell
+        label="Legal · 01"
+        heading="Privacy Policy"
+        effectiveDate="18 April 2026"
+        intro="Vivid Geeks is an independent digital agency based in Sydney, Australia. This policy explains what information we collect when you contact us or book a call, how we use it, and the choices you have."
+      >
       <LegalSection title="1. Who we are">
         <p>
           Vivid Geeks (&ldquo;we&rdquo;, &ldquo;our&rdquo;, &ldquo;us&rdquo;)
@@ -208,6 +227,7 @@ export default function PrivacyPage() {
           .
         </p>
       </LegalSection>
-    </LegalPageShell>
+      </LegalPageShell>
+    </>
   );
 }

@@ -155,14 +155,168 @@ export function faqSchema(items: { question: string; answer: string }[]): JsonLd
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
+    inLanguage: "en-AU",
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["[data-speakable]"],
+    },
+    mainEntity: items.map((item, i) => ({
       "@type": "Question",
+      "@id": `${SITE_URL}/#faq-${i + 1}`,
       name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
         text: item.answer,
+        inLanguage: "en-AU",
+        author: { "@id": `${SITE_URL}/#organization` },
       },
     })),
+  };
+}
+
+// WebPage — anchors a page in the site graph and gives AI crawlers a
+// canonical URL + breadcrumb + speakable selector to lift from.
+export interface WebPageSchemaInput {
+  url: string;
+  name: string;
+  description: string;
+  breadcrumb?: { name: string; url: string }[];
+  primaryImage?: string;
+  speakableSelectors?: string[];
+  datePublished?: string;
+  dateModified?: string;
+  inLanguage?: string;
+  // When the page is conceptually about a Q&A list, link FAQPage as mainEntity.
+  mainEntityId?: string;
+}
+
+export function webPageSchema(input: WebPageSchemaInput): JsonLd {
+  const url = absoluteUrl(input.url);
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: input.name,
+    description: input.description,
+    inLanguage: input.inLanguage ?? "en-AU",
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    primaryImageOfPage: input.primaryImage
+      ? { "@type": "ImageObject", url: input.primaryImage }
+      : undefined,
+    datePublished: input.datePublished,
+    dateModified: input.dateModified ?? input.datePublished,
+    speakable: input.speakableSelectors?.length
+      ? {
+          "@type": "SpeakableSpecification",
+          cssSelector: input.speakableSelectors,
+        }
+      : undefined,
+    breadcrumb: input.breadcrumb
+      ? {
+          "@type": "BreadcrumbList",
+          itemListElement: input.breadcrumb.map((b, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: b.name,
+            item: absoluteUrl(b.url),
+          })),
+        }
+      : undefined,
+    mainEntity: input.mainEntityId ? { "@id": input.mainEntityId } : undefined,
+  };
+}
+
+// Service — one entry per discipline. Lets AI engines answer questions like
+// "who offers X in Sydney" by pulling the matching Service node.
+export interface ServiceSchemaInput {
+  name: string;
+  description: string;
+  slug: string; // stable id fragment, e.g. "seo"
+  serviceType?: string;
+  areaServed?: string[];
+  category?: string;
+}
+
+export function serviceSchema(input: ServiceSchemaInput): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/#service-${input.slug}`,
+    name: input.name,
+    description: input.description,
+    serviceType: input.serviceType ?? input.name,
+    category: input.category ?? "Digital Marketing",
+    provider: { "@id": `${SITE_URL}/#organization` },
+    areaServed: (input.areaServed ?? ["Australia", "Worldwide"]).map((a) => ({
+      "@type": "Place",
+      name: a,
+    })),
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Brands, founders, and growth teams",
+    },
+  };
+}
+
+// OfferCatalog of services — single node that AI engines can quote as a
+// concise "what does Vivid Geeks do" answer.
+export function serviceCatalogSchema(
+  services: ServiceSchemaInput[],
+): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "@id": `${SITE_URL}/#service-catalog`,
+    name: "Vivid Geeks — Service Catalog",
+    itemListElement: services.map((s) => ({
+      "@type": "Offer",
+      itemOffered: { "@id": `${SITE_URL}/#service-${s.slug}` },
+      category: s.category ?? "Digital Marketing",
+    })),
+  };
+}
+
+// Article — used by case studies. Richer than CreativeWork for AI parsing
+// because it carries headline/body/about/keywords explicitly.
+export interface ArticleSchemaInput {
+  headline: string;
+  description: string;
+  url: string;
+  image?: string;
+  datePublished?: string;
+  dateModified?: string;
+  author?: string;
+  about?: string;
+  articleBody?: string;
+  keywords?: string[];
+}
+
+export function articleSchema(input: ArticleSchemaInput): JsonLd {
+  const url = absoluteUrl(input.url);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${url}#article`,
+    mainEntityOfPage: { "@id": `${url}#webpage` },
+    headline: input.headline,
+    description: input.description,
+    url,
+    image: input.image,
+    datePublished: input.datePublished,
+    dateModified: input.dateModified ?? input.datePublished,
+    inLanguage: "en-AU",
+    author: input.author
+      ? { "@type": "Organization", name: input.author }
+      : { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    about: input.about,
+    articleBody: input.articleBody,
+    keywords: input.keywords?.join(", "),
   };
 }
 

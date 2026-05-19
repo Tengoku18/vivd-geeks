@@ -5,7 +5,12 @@ import type { Metadata } from "next";
 import WorkPageClient from "./WorkPageClient";
 import JsonLd from "@/components/atoms/JsonLd/JsonLd";
 import { WORK_PROJECTS } from "@/config/work";
-import { SITE_URL, breadcrumbSchema, absoluteUrl } from "@/lib/seo";
+import {
+  SITE_URL,
+  breadcrumbSchema,
+  absoluteUrl,
+  webPageSchema,
+} from "@/lib/seo";
 
 const TITLE = "Work — Case Studies & Client Outcomes";
 const DESCRIPTION =
@@ -45,6 +50,16 @@ export default function WorkPage() {
     <>
       <JsonLd
         data={[
+          webPageSchema({
+            url: "/work",
+            name: TITLE,
+            description: DESCRIPTION,
+            speakableSelectors: ["[data-speakable]", "h1"],
+            breadcrumb: [
+              { name: "Home", url: "/" },
+              { name: "Work", url: "/work" },
+            ],
+          }),
           breadcrumbSchema([
             { name: "Home", url: "/" },
             { name: "Work", url: "/work" },

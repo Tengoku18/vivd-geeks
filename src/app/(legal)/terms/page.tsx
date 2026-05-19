@@ -3,29 +3,46 @@ import type { Metadata } from "next";
 import LegalPageShell, {
   LegalSection,
 } from "@/components/organisms/LegalPageShell/LegalPageShell";
+import JsonLd from "@/components/atoms/JsonLd/JsonLd";
+import { webPageSchema } from "@/lib/seo";
+
+const TITLE = "Terms of Service — Vivid Geeks";
+const DESCRIPTION =
+  "The terms that govern your use of the Vivid Geeks website and our working relationship.";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description:
-    "The terms that govern your use of the Vivid Geeks website and our working relationship.",
+  description: DESCRIPTION,
   alternates: { canonical: "/terms" },
   openGraph: {
     type: "article",
     url: "/terms",
-    title: "Terms of Service — Vivid Geeks",
-    description:
-      "The terms that govern your use of the Vivid Geeks website and our working relationship.",
+    title: TITLE,
+    description: DESCRIPTION,
   },
 };
 
 export default function TermsPage() {
   return (
-    <LegalPageShell
-      label="Legal · 02"
-      heading="Terms of Service"
-      effectiveDate="18 April 2026"
-      intro="These terms govern your use of the Vivid Geeks website and the services we provide. By using the site or engaging us, you agree to them. Specific engagements are additionally governed by the statement of work we sign with you."
-    >
+    <>
+      <JsonLd
+        data={webPageSchema({
+          url: "/terms",
+          name: TITLE,
+          description: DESCRIPTION,
+          datePublished: "2026-04-18",
+          breadcrumb: [
+            { name: "Home", url: "/" },
+            { name: "Terms", url: "/terms" },
+          ],
+        })}
+      />
+      <LegalPageShell
+        label="Legal · 02"
+        heading="Terms of Service"
+        effectiveDate="18 April 2026"
+        intro="These terms govern your use of the Vivid Geeks website and the services we provide. By using the site or engaging us, you agree to them. Specific engagements are additionally governed by the statement of work we sign with you."
+      >
       <LegalSection title="1. Who we are">
         <p>
           Vivid Geeks (&ldquo;we&rdquo;, &ldquo;our&rdquo;, &ldquo;us&rdquo;)
@@ -174,6 +191,7 @@ export default function TermsPage() {
           .
         </p>
       </LegalSection>
-    </LegalPageShell>
+      </LegalPageShell>
+    </>
   );
 }
