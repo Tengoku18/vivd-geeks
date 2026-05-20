@@ -141,6 +141,9 @@
     background: var(--color-bg-dark);
     color: var(--color-text-primary);
     font-family: var(--font-body);
+    /* DM Sans 400 renders too thin over dark gradient/video backgrounds;
+       500 is the floor that stays readable on mobile and at small sizes. */
+    font-weight: 500;
     overflow-x: hidden;
     overflow-x: clip;
     overscroll-behavior-x: none;

@@ -15,6 +15,7 @@
 import Link from "next/link";
 import type { MouseEventHandler, ReactNode } from "react";
 import { cn } from "@/lib/cn";
+import ChevronRight from "@/components/atoms/Icon/ChevronRight";
 
 // Shared easing — Apple-style "out-expo". Used on every moving piece so the
 // fill, text roll, border, and arrow land on exactly the same frame.
@@ -100,13 +101,13 @@ function Arrow() {
     <span
       aria-hidden="true"
       className={cn(
-        "relative z-10 inline-block",
+        "relative z-10 inline-flex items-center",
         "transition-[transform,color] duration-520",
         EASE,
         "group-hover:translate-x-1 group-hover:text-bg-dark",
       )}
     >
-      →
+      <ChevronRight className="h-3.5 w-3.5" />
     </span>
   );
 }

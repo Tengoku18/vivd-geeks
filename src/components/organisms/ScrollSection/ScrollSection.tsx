@@ -1,9 +1,12 @@
 // src/components/organisms/ScrollSection/ScrollSection.tsx
 "use client";
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import type { ContentSection } from "@/config/sections";
+import { getServiceCategoryBySlug } from "@/config/services";
 import { SectionHeader } from "@/components/molecules/SectionHeader/SectionHeader";
 import { Typography } from "@/components/atoms/Typography";
+import ChevronRight from "@/components/atoms/Icon/ChevronRight";
 import { cn } from "@/lib/cn";
 
 interface Props {
@@ -29,6 +32,7 @@ export default function ScrollSection({ section }: Props) {
     type STInstance = { kill: () => void };
     let trigger: STInstance | undefined;
     let cleanupResize: (() => void) | undefined;
+    let cleanupIO: (() => void) | undefined;
 
     const init = async () => {
       const { gsap } = await import("gsap");
@@ -71,6 +75,34 @@ export default function ScrollSection({ section }: Props) {
       const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (!motionOk) {
         gsap.set(children, { opacity: 1, y: 0, x: 0, scale: 1, rotation: 0, clipPath: "none" });
+        return;
+      }
+
+      // Mobile: scroll-progress timing is misaligned with what the user sees
+      // (tall stacked content + section centered at scroll-range midpoint =
+      // animation fires only when the user has nearly scrolled past). Replace
+      // with per-child IntersectionObserver so each item reveals as it enters
+      // the viewport, giving readable timing on small screens.
+      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+      if (isMobile) {
+        gsap.set(children, { opacity: 0, y: 28 });
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              gsap.to(entry.target, {
+                opacity: 1,
+                y: 0,
+                duration: 0.55,
+                ease: "power3.out",
+              });
+              io.unobserve(entry.target);
+            }
+          },
+          { rootMargin: "0px 0px -12% 0px", threshold: 0.15 },
+        );
+        children.forEach((c) => io.observe(c));
+        cleanupIO = () => io.disconnect();
         return;
       }
 
@@ -170,6 +202,7 @@ export default function ScrollSection({ section }: Props) {
       // BUG FIX: kill ScrollTrigger instance and resize listener on unmount.
       trigger?.kill();
       cleanupResize?.();
+      cleanupIO?.();
     };
   }, [section]);
 
@@ -213,12 +246,39 @@ export default function ScrollSection({ section }: Props) {
                 >
                   {d.name}
                 </Typography>
-                <p className="font-body text-text-on-dark/75 text-sm leading-snug md:text-[0.95rem]">
+                <p className="font-body font-medium text-text-on-dark/85 text-sm leading-snug md:text-[0.95rem]">
                   {d.description}
                 </p>
               </li>
             ))}
           </ul>
+        )}
+
+        {/* Single "Learn More" CTA — appears only when a long-form
+            category page exists for this section in services.ts. */}
+        {getServiceCategoryBySlug(section.id) && (
+          <div className="section-detail mt-6 max-w-md md:mt-7">
+            <Link
+              href={`/services/${section.id}`}
+              className={cn(
+                "group inline-flex items-center gap-2 rounded-full",
+                "border border-white/20 bg-white/[0.04] backdrop-blur-md",
+                "px-6 py-3",
+                "font-body text-[0.7rem] tracking-[0.25em] uppercase text-white/90",
+                "transition-[transform,background-color,border-color,color] duration-300",
+                "hover:-translate-y-0.5 hover:border-accent/60 hover:bg-white/[0.08] hover:text-white",
+                "md:text-[0.75rem]",
+              )}
+            >
+              Learn more
+              <span
+                aria-hidden="true"
+                className="inline-flex items-center transition-transform duration-300 group-hover:translate-x-1"
+              >
+                <ChevronRight className="h-3.5 w-3.5" />
+              </span>
+            </Link>
+          </div>
         )}
       </div>
     </section>

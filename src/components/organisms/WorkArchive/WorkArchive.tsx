@@ -27,6 +27,7 @@ import Link from "next/link";
 import { WORK_PROJECTS, type WorkProject } from "@/config/work";
 import { getLenis } from "@/lib/lenisInstance";
 import { cn } from "@/lib/cn";
+import ChevronRight from "@/components/atoms/Icon/ChevronRight";
 
 // Preempt scroll-to-top before route navigation completes. Snapping the
 // outgoing Lenis target to 0 here means the new case-study page can't
@@ -188,9 +189,9 @@ function ProjectCard({
               View case study
               <span
                 aria-hidden="true"
-                className="transition-transform duration-300 group-hover:translate-x-1"
+                className="inline-flex items-center transition-transform duration-300 group-hover:translate-x-1"
               >
-                →
+                <ChevronRight className="h-3.5 w-3.5" />
               </span>
             </span>
             {featured && project.metrics?.length > 0 && (

@@ -36,6 +36,8 @@ import LenisInit from "@/components/atoms/LenisInit/LenisInit";
 import AnimatedMetric from "@/components/atoms/AnimatedMetric";
 import CaseStudyChoreography from "@/components/organisms/CaseStudyChoreography";
 import JsonLd from "@/components/atoms/JsonLd/JsonLd";
+import ChevronLeft from "@/components/atoms/Icon/ChevronLeft";
+import ChevronRight from "@/components/atoms/Icon/ChevronRight";
 import {
   SITE_URL,
   absoluteUrl,
@@ -195,7 +197,7 @@ export default async function CaseStudyPage({
               href="/work"
               className="font-body inline-flex w-fit items-center gap-2 text-[0.65rem] tracking-[0.3em] uppercase text-white/75 transition-colors hover:text-white md:text-[0.7rem]"
             >
-              <span aria-hidden="true">←</span> All work
+              <ChevronLeft className="h-3 w-3" /> All work
             </Link>
 
             <div className="font-body flex flex-wrap items-center gap-x-3 gap-y-2 text-[0.6rem] tracking-[0.3em] uppercase text-white/75 md:text-[0.65rem]">
@@ -517,9 +519,9 @@ export default async function CaseStudyPage({
                   Open case study
                   <span
                     aria-hidden="true"
-                    className="transition-transform duration-300 group-hover:translate-x-1"
+                    className="inline-flex items-center transition-transform duration-300 group-hover:translate-x-1"
                   >
-                    →
+                    <ChevronRight className="h-3.5 w-3.5" />
                   </span>
                 </span>
               </div>
@@ -530,7 +532,7 @@ export default async function CaseStudyPage({
                 href="/work"
                 className="font-body inline-flex items-center gap-2 text-[0.65rem] tracking-[0.3em] uppercase text-white/55 transition-colors hover:text-white md:text-[0.7rem]"
               >
-                <span aria-hidden="true">←</span> Back to all work
+                <ChevronLeft className="h-3 w-3" /> Back to all work
               </Link>
             </div>
           </div>

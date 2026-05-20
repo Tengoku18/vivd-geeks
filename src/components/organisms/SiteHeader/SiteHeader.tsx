@@ -25,9 +25,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { getLenis } from "@/lib/lenisInstance";
+import ChevronRight from "@/components/atoms/Icon/ChevronRight";
 
 const NAV_LINKS = [
-  { label: "Features", href: "/#features" },
+  { label: "Services", href: "/services" },
   { label: "Work",     href: "/work" },
   { label: "Contact",  href: "/#contact" },
 ];
@@ -199,9 +200,9 @@ export default function SiteHeader() {
                   <span className="flex-1">{link.label}</span>
                   <span
                     aria-hidden="true"
-                    className="text-white/30 transition-transform duration-300 group-hover:translate-x-1"
+                    className="inline-flex items-center text-white/30 transition-transform duration-300 group-hover:translate-x-1"
                   >
-                    →
+                    <ChevronRight className="h-4 w-4" />
                   </span>
                 </Link>
               </li>

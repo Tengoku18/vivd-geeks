@@ -100,7 +100,7 @@ export const SECTIONS_CONFIG: Section[] = [
     type: "content",
     animation: "slide-left",
     alignment: "left",
-    label: "002 / Search & Intelligence",
+    label: "001 / Search & Intelligence",
     heading: "Search & Intelligence",
     body: "Own the moment your customer is looking for a solution.",
     details: [
@@ -126,7 +126,7 @@ export const SECTIONS_CONFIG: Section[] = [
     type: "content",
     animation: "slide-right",
     alignment: "right",
-    label: "003 / Growth & Performance",
+    label: "002 / Growth & Performance",
     heading: "Growth & Performance",
     body: "Profitable scaling through data-backed customer acquisition.",
     details: [
@@ -152,7 +152,7 @@ export const SECTIONS_CONFIG: Section[] = [
     type: "content",
     animation: "rotate-in",
     alignment: "left",
-    label: "004 / Creative & Brand",
+    label: "003 / Creative & Brand",
     heading: "Creative & Brand Identity",
     body: "Building the trust factor that justifies premium pricing.",
     details: [
@@ -178,7 +178,7 @@ export const SECTIONS_CONFIG: Section[] = [
     type: "content",
     animation: "clip-reveal",
     alignment: "right",
-    label: "005 / Digital Infrastructure",
+    label: "004 / Digital Infrastructure",
     heading: "Digital Infrastructure",
     body: "The digital foundation that turns traffic into revenue.",
     details: [
@@ -199,7 +199,7 @@ export const SECTIONS_CONFIG: Section[] = [
     type: "content",
     animation: "scale-up",
     alignment: "left",
-    label: "006 / Engagement & Retention",
+    label: "005 / Engagement & Retention",
     heading: "Engagement & Retention",
     body: "Turning one-time buyers into lifetime brand advocates.",
     details: [
@@ -232,7 +232,7 @@ export const SECTIONS_CONFIG: Section[] = [
     type: "cta",
     animation: "fade-up",
     alignment: "left",
-    label: "007 / Let's Build",
+    label: "006 / Let's Build",
     heading: "Architect Your Market Dominance",
     body: "Most agencies sell clicks and impressions. We build systems that transform them into a measurable increase in your bottom line.",
     buttonText: "Start The Conversation",
@@ -280,7 +280,7 @@ export interface TestimonialsConfig {
 }
 
 export const TESTIMONIALS_CONFIG: TestimonialsConfig = {
-  label: "008 / Testimonials",
+  label: "007 / Testimonials",
   heading: "Operators Who Scaled With Us",
   body: "We don't sell impressions — we engineer outcomes. Here's what the operators behind the numbers have to say.",
   items: [
@@ -332,7 +332,7 @@ export interface ContactConfig {
 }
 
 export const CONTACT_CONFIG: ContactConfig = {
-  label: "009 / Contact",
+  label: "008 / Contact",
   heading: "Start The Conversation",
   body: "Tell us about your brand and where you want it to go. We reply to every serious enquiry within one business day.",
   info: [
@@ -381,7 +381,7 @@ export interface FaqConfig {
 }
 
 export const FAQ_CONFIG: FaqConfig = {
-  label: "010 / FAQ",
+  label: "009 / FAQ",
   heading: "Questions, Answered",
   body: "The short version of what most prospective clients ask us before the first call. Still curious? Use the form above — we reply within a business day.",
   items: [

@@ -5,6 +5,34 @@ import { usePathname } from "next/navigation";
 import type Lenis from "lenis";
 import { setLenis, getLenis } from "@/lib/lenisInstance";
 
+// ScrollSection positions itself via rAF after mount; on first paint the
+// target element may not yet have its computed `top`. Poll across a few
+// frames before giving up, so cross-route arrivals (e.g. /work → /#search-
+// intelligence) land on the right anchor.
+function smoothScrollToHash(hash: string) {
+  if (!hash) return;
+  let tries = 0;
+  const tick = () => {
+    const el = document.getElementById(hash);
+    // Wait for ScrollSection to write its absolute `top` — until then
+    // offsetTop is 0 and Lenis would scroll to the top of the document.
+    if (el && (el.offsetTop > 0 || tries > 20)) {
+      const lenis = getLenis();
+      // Center the section vertically — its content uses -translate-y-1/2
+      // so the visual centre sits at the element's offsetTop.
+      const offset = -window.innerHeight / 2;
+      if (lenis) {
+        lenis.scrollTo(el, { offset, duration: 1.2 });
+      } else {
+        window.scrollTo({ top: el.offsetTop + offset, behavior: "smooth" });
+      }
+      return;
+    }
+    if (tries++ < 40) requestAnimationFrame(tick);
+  };
+  tick();
+}
+
 export function useLenis() {
   const pathname = usePathname();
 
@@ -79,7 +107,23 @@ export function useLenis() {
       if (a.target && a.target !== "" && a.target !== "_self") return;
 
       const href = a.getAttribute("href") ?? "";
-      if (!href.startsWith("/") || href.includes("#")) return;
+      if (!href.startsWith("/")) return;
+
+      // Same-page hash click ("/#contact" while already on "/"): bypass
+      // Next.js navigation and drive Lenis directly so the smooth scroll
+      // engine handles it — otherwise native anchor jump fights Lenis's
+      // RAF and produces a hard snap (or nothing).
+      const hashIdx = href.indexOf("#");
+      if (hashIdx !== -1) {
+        const pathPart = href.slice(0, hashIdx) || "/";
+        const hash = href.slice(hashIdx + 1);
+        if (pathPart === window.location.pathname && hash) {
+          e.preventDefault();
+          smoothScrollToHash(hash);
+        }
+        return;
+      }
+
       if (href === window.location.pathname) return;
 
       // Native reset only — Lenis is about to be destroyed by the
@@ -122,6 +166,16 @@ export function useLenis() {
 
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
+    }
+
+    // If the URL carries a hash (cross-route anchor jump like
+    // /work/foo → /#search-intelligence), skip the reset-to-top and
+    // hand off to the hash scroller instead — otherwise reset wins
+    // the race and the user lands at the top of the page.
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      smoothScrollToHash(hash);
+      return;
     }
 
     const reset = () => {

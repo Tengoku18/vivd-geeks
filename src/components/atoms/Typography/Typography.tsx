@@ -27,9 +27,9 @@ const VARIANT_CLASSES: Record<TypographyVariant, string> = {
   h1: `font-display uppercase leading-[0.95] text-text-on-dark text-[clamp(2rem,5vw,5.5rem)] ${TEXT_SHADOW_HEAVY}`,
   h2: `font-display uppercase leading-[1] text-text-on-dark text-[clamp(1.5rem,3.5vw,3rem)] ${TEXT_SHADOW_HEAVY}`,
   stat: `font-display leading-none text-text-on-dark text-[clamp(3rem,8vw,7rem)] [font-variant-numeric:tabular-nums] ${TEXT_SHADOW_HEAVY}`,
-  label: `font-body text-[0.8rem] tracking-[0.3em] uppercase text-white/85 ${TEXT_SHADOW_LIGHT}`,
-  body: `font-body text-lg leading-[1.65] text-white/95 ${TEXT_SHADOW_LIGHT}`,
-  note: `font-body text-[0.95rem] tracking-[0.05em] text-white/75 ${TEXT_SHADOW_LIGHT}`,
+  label: `font-body font-medium text-[0.8rem] tracking-[0.3em] uppercase text-white/85 ${TEXT_SHADOW_LIGHT}`,
+  body: `font-body font-medium text-lg leading-[1.65] text-white/95 ${TEXT_SHADOW_LIGHT}`,
+  note: `font-body font-medium text-[0.95rem] tracking-[0.05em] text-white/75 ${TEXT_SHADOW_LIGHT}`,
   marquee: `font-display uppercase leading-none text-text-on-dark text-[clamp(4rem,14vw,18rem)] ${TEXT_SHADOW_HEAVY}`,
 };
 
