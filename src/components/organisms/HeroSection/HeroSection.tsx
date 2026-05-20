@@ -61,14 +61,14 @@ export default function HeroSection({ config }: Props) {
         {/* Label — first to enter */}
         <Typography
           variant="label"
-          className="mb-5"
+          className="mb-4 sm:mb-5"
           style={{ animation: ENTER, animationDelay: "0.85s" }}
         >
           {config.label}
         </Typography>
 
         {/* Display heading — each line staggers in after the label */}
-        <Typography variant="display" as="h1" className="flex flex-col">
+        <Typography variant="display" as="h1" className="flex w-full min-w-0 flex-col wrap-break-word hyphens-auto">
           {config.heading.map((line, i) => (
             <span
               key={i}
@@ -83,7 +83,7 @@ export default function HeroSection({ config }: Props) {
           ))}
           {/* Typewriter handles its own appearance — just delay its container */}
           <span
-            className="block"
+            className="block min-w-0 wrap-anywhere min-h-[2.2em]"
             style={{ animation: ENTER, animationDelay: `${1.0 + config.heading.length * 0.12}s` }}
           >
             <Typewriter phrases={config.typewriterPhrases} />
@@ -93,7 +93,7 @@ export default function HeroSection({ config }: Props) {
         {/* Tagline */}
         <Typography
           variant="body"
-          className="mt-8 max-w-lg"
+          className="mt-6 max-w-lg sm:mt-8"
           style={{ animation: ENTER, animationDelay: "1.3s" }}
         >
           {config.tagline}
