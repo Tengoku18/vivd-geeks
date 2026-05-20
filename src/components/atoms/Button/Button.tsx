@@ -24,7 +24,7 @@ const EASE = "ease-[cubic-bezier(0.65,0,0.35,1)]";
 const BASE_CLASS = cn(
   "group relative inline-flex items-center gap-3 self-start overflow-hidden",
   "border border-white/15 bg-transparent",
-  "px-7 py-4 min-w-[12rem]",
+  "px-7 py-4 min-w-[12rem] whitespace-nowrap",
   "font-body text-[0.75rem] tracking-[0.25em] uppercase",
   "text-text-on-dark",
   "transition-[border-color] duration-520",

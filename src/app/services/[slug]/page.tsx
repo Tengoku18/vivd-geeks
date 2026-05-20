@@ -166,10 +166,10 @@ export default async function ServiceCategoryPage({
 
           <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-7">
             <Link
-              href={`/#${cat.slug}`}
+              href="/services"
               className="font-body inline-flex w-fit items-center gap-2 text-[0.65rem] tracking-[0.3em] uppercase text-white/65 transition-colors hover:text-white md:text-[0.7rem]"
             >
-              <ChevronLeft className="h-3 w-3" /> Back to overview
+              <ChevronLeft className="h-3 w-3" /> Back to services
             </Link>
 
             <p className="font-body text-[0.7rem] tracking-[0.35em] uppercase text-white/55 md:text-[0.75rem]">
@@ -283,16 +283,20 @@ export default async function ServiceCategoryPage({
 
         {/* ── CLOSING CTA ────────────────────────────────────────────────── */}
         <section className="relative px-6 pb-28 md:px-12 md:pb-36 lg:px-20 xl:px-28">
-          <div className="mx-auto flex w-full max-w-5xl flex-col items-start gap-8 rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-md md:flex-row md:items-center md:justify-between md:p-12">
-            <div className="max-w-xl">
+          <div className="mx-auto flex w-full max-w-5xl flex-col gap-10 rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-md md:gap-12 md:p-12">
+            <div className="flex flex-col gap-3">
               <p className="font-body text-[0.65rem] tracking-[0.35em] uppercase text-white/55 md:text-[0.7rem]">
                 Ready when you are
               </p>
-              <h2 className="font-display mt-3 text-[clamp(1.75rem,3.6vw,2.75rem)] uppercase leading-[1.05] tracking-tight text-text-on-dark">
+              <h2 className="font-display text-[clamp(1.75rem,3.6vw,2.75rem)] uppercase leading-[1.05] tracking-tight text-text-on-dark">
                 Let&apos;s talk about your {cat.category.toLowerCase()} strategy.
               </h2>
             </div>
-            <div className="flex flex-col items-start gap-5 md:flex-row md:items-center md:gap-8">
+            {/* CTAs sit on their own row beneath the headline so the button
+                never has to compete with the heading for horizontal space —
+                the long button label could otherwise wrap and clip inside
+                the button's overflow-hidden bounds. */}
+            <div className="flex flex-wrap items-center gap-6 md:gap-8">
               {/* Primary CTA — uses the shared Button atom (border + gold
                   fill-on-hover + text-roll). overflow-hidden is baked in
                   so the animation can never leak past the button bounds. */}
@@ -303,7 +307,7 @@ export default async function ServiceCategoryPage({
               {hasNext && (
                 <Link
                   href={`/services/${next.slug}`}
-                  className="font-body inline-flex items-center gap-2 text-[0.7rem] tracking-[0.3em] uppercase text-white/70 transition-colors hover:text-white md:text-[0.75rem]"
+                  className="font-body inline-flex items-center gap-2 whitespace-nowrap text-[0.7rem] tracking-[0.3em] uppercase text-white/70 transition-colors hover:text-white md:text-[0.75rem]"
                 >
                   Next · {next.category}
                   <ChevronRight className="h-3.5 w-3.5" />

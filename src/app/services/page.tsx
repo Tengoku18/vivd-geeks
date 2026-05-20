@@ -31,7 +31,7 @@ import { cn } from "@/lib/cn";
 
 const PAGE_TITLE = "Services — Vivid Geeks";
 const PAGE_DESCRIPTION =
-  "Every discipline we run — search & intelligence, growth, brand, infrastructure, retention. Explore the full scope and dive into the details.";
+  "Growth-driven digital marketing and creative solutions — data-driven marketing plans, powerful creative assets and high-converting digital systems built to generate measurable business growth.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -99,12 +99,14 @@ export default function ServicesIndexPage() {
               className="font-display text-[clamp(2.25rem,7vw,5.5rem)] leading-[0.98] tracking-tight uppercase text-text-on-dark [text-shadow:0_2px_28px_rgba(0,0,0,0.6)]"
               style={{ textWrap: "balance" }}
             >
-              Every Discipline, One Engine.
+              Growth-Driven Digital Marketing &amp; Creative Solutions
             </h1>
-            <p className="font-body font-medium max-w-2xl text-lg leading-[1.55] text-white/85 md:text-xl">
-              Five interlocking practices — search, growth, brand,
-              infrastructure, retention. Pick one to dive into, or talk to us
-              about the system end to end.
+            <p className="font-body font-medium max-w-3xl text-lg leading-[1.55] text-white/85 md:text-xl">
+              We at Vivid Geeks design data-driven marketing plans, powerful
+              creative assets and high-converting digital systems to help
+              ambitious brands dominate online. Our strategies are built to
+              generate measurable business growth — from search visibility and
+              paid advertising to branding, automation, and customer retention.
             </p>
           </div>
         </section>
