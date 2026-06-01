@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { WORK_PROJECTS } from "@/config/work";
+import { BLOG_POSTS } from "@/config/resources";
 import { SITE_URL } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -17,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/resources`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
     },
     {
       url: `${SITE_URL}/privacy`,
@@ -39,5 +46,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...workRoutes];
+  const resourceRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((p) => ({
+    url: `${SITE_URL}/resources/${p.slug}`,
+    lastModified: new Date(`${p.date}T12:00:00Z`),
+    changeFrequency: "yearly",
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...workRoutes, ...resourceRoutes];
 }

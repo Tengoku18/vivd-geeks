@@ -57,17 +57,11 @@ export default function HeroSection({ config }: Props) {
           phrase would otherwise force horizontal overflow. The flex parent
           inherits w-full from the section, so this just constrains the
           inner column to the available content area. */}
-      <div className="relative z-20 flex w-full min-w-0 flex-col items-start px-5 text-left wrap-break-word sm:px-6 md:max-w-[60%] md:px-12 lg:px-20 xl:px-28">
-        {/* Label — first to enter */}
-        <Typography
-          variant="label"
-          className="mb-4 sm:mb-5"
-          style={{ animation: ENTER, animationDelay: "0.85s" }}
-        >
-          {config.label}
-        </Typography>
-
-        {/* Display heading — each line staggers in after the label */}
+      <div className="relative z-20 flex w-full min-w-0 flex-col items-start px-5 text-left wrap-break-word sm:px-6 md:max-w-[85%] md:px-12 lg:max-w-[80%] lg:px-20 xl:px-28">
+        {/* Display heading — each line staggers in. The right-side visual
+            panel is currently disabled, so the column runs wide enough for
+            the typed phrase to land on a single line on large screens —
+            keeping the headline to two lines whenever the phrase fits. */}
         <Typography variant="display" as="h1" className="flex w-full min-w-0 flex-col wrap-break-word hyphens-auto">
           {config.heading.map((line, i) => (
             <span
@@ -75,16 +69,18 @@ export default function HeroSection({ config }: Props) {
               className="block"
               style={{
                 animation: ENTER,
-                animationDelay: `${1.0 + i * 0.12}s`,
+                animationDelay: `${0.85 + i * 0.12}s`,
               }}
             >
               {line}
             </span>
           ))}
-          {/* Typewriter handles its own appearance — just delay its container */}
+          {/* Typewriter handles its own appearance — just delay its container.
+              min-h reserves a single line on large (less below) so the layout
+              doesn't jump as phrases of different length type out. */}
           <span
-            className="block min-w-0 wrap-anywhere min-h-[2.2em]"
-            style={{ animation: ENTER, animationDelay: `${1.0 + config.heading.length * 0.12}s` }}
+            className="block min-w-0 wrap-break-word min-h-[2.4em] lg:min-h-[1.25em]"
+            style={{ animation: ENTER, animationDelay: `${0.85 + config.heading.length * 0.12}s` }}
           >
             <Typewriter phrases={config.typewriterPhrases} />
           </span>
