@@ -25,6 +25,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { useAustralianQuarter } from "@/hooks/useAustralianQuarter";
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { getLenis } from "@/lib/lenisInstance";
@@ -53,6 +54,7 @@ const NAV_LINKS: { label: string; href: string; menu?: MenuKey }[] = [
 ];
 
 export default function SiteHeader() {
+  const availability = useAustralianQuarter();
   const [open, setOpen] = useState(false);
   // Which desktop mega-menu is currently open (null = none).
   const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
@@ -519,7 +521,8 @@ export default function SiteHeader() {
               Booking now
             </p>
             <p className="font-body mt-2 text-sm text-white/70">
-              Q2 ’26 — taking three more engagements.
+              {availability.labelShort.replace("'", "’")} — taking{" "}
+              {availability.slotsWord} more engagements.
             </p>
             <a
               href="mailto:hello@vividgeeksdigital.com.au"

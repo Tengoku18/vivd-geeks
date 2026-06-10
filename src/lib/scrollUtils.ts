@@ -2,7 +2,11 @@
 
 import type { Section } from "@/config/sections";
 
-const HERO_RANGE = 20; // hero occupies 0–20%
+// Hero text fully fades by ~6.7% scroll and the canvas circle-wipe finishes by
+// ~7% (see CanvasScene). Keeping the old 20% left ~1.3 empty screens before the
+// first content section entered — so the hero budget is trimmed to start the
+// content choreography right after the hero clears.
+const HERO_RANGE = 12; // hero occupies 0–12%
 const SECTION_GAP = 1.5; // breathing room between sections
 const CTA_RANGE = 10; // CTA gets the last 10% (90–100)
 

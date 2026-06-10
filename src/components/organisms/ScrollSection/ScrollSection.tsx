@@ -107,8 +107,18 @@ export default function ScrollSection({ section }: Props) {
       }
 
       const tl = gsap.timeline({ paused: true });
-      const enter = (section.enter ?? 0) / 100;
-      const leave = (section.leave ?? 0) / 100;
+
+      // The section is pinned (absolute, -translate-y-1/2) at the MIDPOINT of
+      // its scroll range, so progress === enter is roughly when it reaches the
+      // viewport centre — revealing there makes it "pop" at centre with no time
+      // to read before it scrolls off the top. Instead reveal when the element
+      // first enters the viewport from the bottom (midpoint minus one viewport
+      // height), so it's fully formed by the time it crosses centre and stays
+      // readable for the whole pass.
+      const midFrac =
+        ((section.enter ?? 0) + (section.leave ?? 0)) / 200;
+      const vhFraction = window.innerHeight / scrollEl.scrollHeight;
+      const revealAt = Math.max(0, midFrac - vhFraction);
 
       switch (section.animation) {
         case "fade-up":
@@ -183,14 +193,14 @@ export default function ScrollSection({ section }: Props) {
         end: "bottom bottom",
         onUpdate: (self) => {
           const p = self.progress;
-          if (p >= enter && p <= leave) {
+          if (p >= revealAt) {
             // BUG FIX: tl.progress() === 0 check prevents replay after reverse().
             // Play if the timeline is paused/reversed (not actively playing).
             if ((!tl.isActive() && tl.reversed()) || tl.progress() < 0.05) {
               tl.play();
             }
-          } else if (p < enter) {
-            if (tl.progress() > 0) tl.reverse();
+          } else if (tl.progress() > 0) {
+            tl.reverse();
           }
         },
       });

@@ -39,7 +39,14 @@ export default function StatsSection({ section }: Props) {
       };
       requestAnimationFrame(setPosition);
 
-      const enter = (section.enter ?? 0) / 100;
+      // Reveal as the block enters the viewport from the bottom (it is pinned
+      // at its range midpoint), not at progress === enter when it's already at
+      // centre — that way the 2.2s count-up starts early and is finished and
+      // readable by the time the block reaches centre.
+      const midFrac =
+        ((section.enter ?? 0) + (section.leave ?? 0)) / 200;
+      const vhFraction = window.innerHeight / scrollEl.scrollHeight;
+      const revealAt = Math.max(0, midFrac - vhFraction);
       let hasPlayed = false;
 
       // BUG FIX: the previous version had a nested ScrollTrigger inside gsap.from,
@@ -65,7 +72,7 @@ export default function StatsSection({ section }: Props) {
         start: "top top",
         end: "bottom bottom",
         onUpdate: (self) => {
-          if (self.progress >= enter && !hasPlayed) {
+          if (self.progress >= revealAt && !hasPlayed) {
             hasPlayed = true;
 
             el.querySelectorAll<HTMLElement>(".stat-number").forEach((num) => {

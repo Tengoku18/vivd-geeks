@@ -31,6 +31,20 @@ const LABEL_BASE =
   // focused: float up with accent tint (overrides has-value color)
   "peer-focus:-top-3 peer-focus:text-[0.7rem] peer-focus:text-accent";
 
+// <select> has no :placeholder-shown, so it relies on validity instead.
+// The select is `required` with an empty default value: empty = :invalid
+// (resting), a real selection = :valid (floated) — matching the text inputs.
+const LABEL_SELECT =
+  "pointer-events-none absolute left-0 origin-left " +
+  "font-body tracking-[0.25em] uppercase " +
+  "transition-all duration-300 " +
+  // default (empty, unfocused): sit over the placeholder area
+  "top-3 text-[0.9rem] text-white/40 " +
+  // has a value: float up
+  "peer-valid:-top-3 peer-valid:text-[0.7rem] peer-valid:text-white/50 " +
+  // focused: float up with accent tint (overrides has-value color)
+  "peer-focus:-top-3 peer-focus:text-[0.7rem] peer-focus:text-accent";
+
 export default function ContactSection({ config }: Props) {
   const ref = useRef<HTMLElement>(null);
   const [status, setStatus] = useState<Status>("idle");
@@ -272,11 +286,13 @@ export default function ContactSection({ config }: Props) {
               defaultValue=""
               className={cn(
                 FIELD_BASE,
-                "appearance-none pr-8 [&>option]:bg-bg-dark",
+                // while empty (:invalid) hide the option text so the resting
+                // label is the placeholder; show the chosen value once :valid
+                "appearance-none pr-8 invalid:text-transparent [&>option]:bg-bg-dark",
               )}
             >
               <option value="" disabled>
-                &nbsp;
+                What do you need help with?
               </option>
               {config.services.map((s) => (
                 <option key={s} value={s}>
@@ -284,8 +300,8 @@ export default function ContactSection({ config }: Props) {
                 </option>
               ))}
             </select>
-            <label htmlFor="contact-service" className={LABEL_BASE}>
-              What do you help with?
+            <label htmlFor="contact-service" className={LABEL_SELECT}>
+              What do you need help with?
             </label>
             <span
               aria-hidden="true"

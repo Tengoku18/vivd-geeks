@@ -7,6 +7,7 @@ import type { FooterConfig } from "@/config/sections";
 import { Typography } from "@/components/atoms/Typography";
 import { Button } from "@/components/atoms/Button";
 import { LiveClock } from "@/components/atoms/LiveClock";
+import { useAustralianQuarter } from "@/hooks/useAustralianQuarter";
 import { cn } from "@/lib/cn";
 import { scrollToHash } from "@/lib/scrollToHash";
 
@@ -24,6 +25,7 @@ interface Props {
 
 export default function FooterSection({ config }: Props) {
   const ref = useRef<HTMLElement>(null);
+  const availability = useAustralianQuarter();
 
   useEffect(() => {
     const el = ref.current;
@@ -184,7 +186,7 @@ export default function FooterSection({ config }: Props) {
               variant="body"
               className="footer-cta-supporting max-w-md text-white/70"
             >
-              {config.cta.body}
+              {config.cta.body.replace("{quarter}", availability.label)}
             </Typography>
 
             <div className="footer-cta-supporting">
@@ -300,7 +302,7 @@ export default function FooterSection({ config }: Props) {
               </span>
 
               <span className="mt-1 inline-flex items-center gap-2 border border-white/15 px-3 py-1.5 font-body text-[0.6rem] tracking-[0.3em] text-white/70 uppercase">
-                Q2 2026 · 02 slots
+                {availability.label} · {availability.slotsPadded} slots
               </span>
             </div>
           </div>
@@ -328,10 +330,10 @@ export default function FooterSection({ config }: Props) {
               {config.tagline}
             </Typography>
             <a
-              href="mailto:hello@vividgeeks.com"
+              href="mailto:hello@vividgeeks.com.au"
               className="font-body hover:text-accent w-fit text-sm tracking-[0.2em] text-white/75 uppercase transition-colors"
             >
-              hello@vividgeeks.com
+              hello@vividgeeks.com.au
             </a>
           </div>
 

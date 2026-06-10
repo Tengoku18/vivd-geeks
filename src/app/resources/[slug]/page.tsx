@@ -193,7 +193,7 @@ export default async function ResourceArticlePage({
         </section>
 
         {/* ── BODY ───────────────────────────────────────────────────────── */}
-        <section className="relative px-6 pb-20 md:px-12 md:pb-28 lg:px-20 xl:px-28">
+        <section className="relative px-6 pt-12 pb-20 md:px-12 md:pt-16 md:pb-28 lg:px-20 lg:pt-20 xl:px-28">
           <div className="mx-auto grid w-full max-w-5xl gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,18rem)] lg:gap-16">
             <article className="flex flex-col gap-12">
               {post.body.map((section, i) => (

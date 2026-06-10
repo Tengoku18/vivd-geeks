@@ -257,7 +257,7 @@ export const HERO_CONFIG: HeroConfig = {
 export const MARQUEE_CONFIG: MarqueeConfig = {
   text: "VIVID GEEKS · MOTION, CRAFTED ·",
   speed: -25,
-  enterAt: 18,
+  enterAt: 10,
   leaveAt: 80,
 };
 
@@ -396,11 +396,6 @@ export const FAQ_CONFIG: FaqConfig = {
         "Selectively. We take on pre-seed to Series A companies when there's a clear thesis, a product in market, and budget for at least six months of work. If the fit isn't right we'll tell you on the intro call.",
     },
     {
-      question: "How is pricing structured?",
-      answer:
-        "Fixed-scope sprints for strategy and creative; monthly retainers for growth, performance, and infrastructure. Typical engagements land between $12k–$45k per month depending on surface area. No markups on ad spend or tooling.",
-    },
-    {
       question: "Can you take over an existing ad account or site?",
       answer:
         "Yes — most clients come to us with live accounts and a history of spend. We audit, preserve the learning, and rebuild the layers that are hurting performance before we push anything new.",
@@ -442,7 +437,8 @@ export interface FooterConfig {
 export const FOOTER_CONFIG: FooterConfig = {
   cta: {
     heading: ["Have a vision?", "Let's make it real."],
-    body: "Currently accepting a limited number of engagements for Q2 2026.",
+    // {quarter} is replaced at render time with the live Australian-FY quarter.
+    body: "Currently accepting a limited number of engagements for {quarter}.",
     buttonText: "Schedule a call",
     // TODO: swap in the real Calendly handle / event slug.
     buttonHref: "https://calendly.com/vividgeeks/intro-call",

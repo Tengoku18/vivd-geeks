@@ -49,7 +49,7 @@ export default function HomePageClient() {
       <SiteHeader />
       <HeroSection config={HERO_CONFIG} />
       <CanvasScene onLoadProgress={setLoadProgress} />
-      <GlassOverlay enter={18} leave={100} />
+      <GlassOverlay enter={8} leave={100} />
       <DarkOverlay enter={overlayRange.enter} leave={overlayRange.leave} />
       {/* MarqueeText is a fixed overlay — it is NOT part of SECTIONS_CONFIG */}
       <MarqueeText

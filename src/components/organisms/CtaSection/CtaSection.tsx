@@ -51,6 +51,14 @@ export default function CtaSection({ section }: Props) {
         ease: "power3.out",
       });
 
+      // Reveal as the CTA enters the viewport from the bottom (it is pinned at
+      // its range midpoint), not at progress === enter when it's already at
+      // centre — gives the copy time to settle before it reaches centre.
+      const midFrac =
+        ((section.enter ?? 0) + (section.leave ?? 0)) / 200;
+      const vhFraction = window.innerHeight / scrollEl.scrollHeight;
+      const revealAt = Math.max(0, midFrac - vhFraction);
+
       let hasPlayed = false;
       trigger = ScrollTrigger.create({
         trigger: scrollEl,
@@ -58,7 +66,7 @@ export default function CtaSection({ section }: Props) {
         end: "bottom bottom",
         onUpdate: (self) => {
           // CTA persists — play once, never reverse
-          if (self.progress >= (section.enter ?? 0) / 100 && !hasPlayed) {
+          if (self.progress >= revealAt && !hasPlayed) {
             hasPlayed = true;
             tl.play();
           }
