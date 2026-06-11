@@ -11,13 +11,13 @@ import { getAustralianQuarter, type QuarterInfo } from "@/lib/availability";
 
 // Neutral first-paint value. Replaced on mount with the real Sydney value.
 const FALLBACK: QuarterInfo = {
-  quarter: 2,
+  quarter: 4,
   year: 2026,
-  label: "Q2 2026",
-  labelShort: "Q2 '26",
-  slots: 2,
-  slotsPadded: "02",
-  slotsWord: "two",
+  label: "Q4 2025-2026",
+  labelShort: "Q4 '25-26",
+  slots: 3,
+  slotsPadded: "03",
+  slotsWord: "three",
 };
 
 export function useAustralianQuarter(): QuarterInfo {

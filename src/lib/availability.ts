@@ -4,7 +4,8 @@
 //
 //   - Australian FY quarters start in July: Q1 = Jul–Sep, Q2 = Oct–Dec,
 //     Q3 = Jan–Mar, Q4 = Apr–Jun.
-//   - The year shown is the CALENDAR year of the current month.
+//   - The year shown is the FINANCIAL-YEAR range the current month falls in,
+//     e.g. Jul 2025–Jun 2026 → "2025-2026"; from Jul 2026 → "2026-2027".
 //   - Each quarter opens with 9 slots and sheds 3 per month within the quarter
 //     (month 1 → 9, month 2 → 6, month 3 → 3) to create FOMO.
 //
@@ -46,11 +47,18 @@ export function getAustralianQuarter(
   const monthWithinQuarter = monthsSinceJuly % 3; // 0–2
   const slots = 9 - monthWithinQuarter * 3; // 9 | 6 | 3
 
+  // Financial year runs Jul–Jun. From July the FY starts in the current
+  // calendar year; before July it started the previous year.
+  const fyStart = month >= 7 ? year : year - 1;
+  const fyEnd = fyStart + 1;
+  const fyRange = `${fyStart}-${fyEnd}`; // "2025-2026"
+  const fyRangeShort = `'${String(fyStart).slice(2)}-${String(fyEnd).slice(2)}`; // "'25-26"
+
   return {
     quarter,
     year,
-    label: `Q${quarter} ${year}`,
-    labelShort: `Q${quarter} '${String(year).slice(2)}`,
+    label: `Q${quarter} ${fyRange}`,
+    labelShort: `Q${quarter} ${fyRangeShort}`,
     slots,
     slotsPadded: String(slots).padStart(2, "0"),
     slotsWord: SLOT_WORDS[slots] ?? String(slots),
