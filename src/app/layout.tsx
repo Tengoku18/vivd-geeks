@@ -13,6 +13,7 @@ import {
   professionalServiceSchema,
 } from "@/lib/seo";
 import JsonLd from "@/components/atoms/JsonLd/JsonLd";
+import FacebookPixel from "@/components/atoms/FacebookPixel";
 
 const displayFont = Bebas_Neue({
   weight: "400",
@@ -108,6 +109,7 @@ export default function RootLayout({
     <html lang="en-AU" className={`${displayFont.variable} ${bodyFont.variable}`}>
       <body>
         {children}
+        <FacebookPixel />
         <JsonLd
           data={[
             organizationSchema(),
