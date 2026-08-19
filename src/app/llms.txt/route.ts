@@ -50,7 +50,7 @@ function buildLlmsTxt(): string {
   lines.push("## Services");
   lines.push("");
   for (const svc of services) {
-    lines.push(`- **${svc.name}** — ${svc.description}`);
+    lines.push(`- **${svc.name}**: ${svc.description}`);
   }
   lines.push("");
 
@@ -58,7 +58,7 @@ function buildLlmsTxt(): string {
   lines.push("");
   for (const p of WORK_PROJECTS) {
     lines.push(
-      `- [${p.title} — ${p.discipline}](${SITE_URL}/work/${p.slug}): ${p.summary}`,
+      `- [${p.title}: ${p.discipline}](${SITE_URL}/work/${p.slug}): ${p.summary}`,
     );
   }
   lines.push("");

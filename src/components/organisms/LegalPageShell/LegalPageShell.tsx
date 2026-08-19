@@ -54,7 +54,7 @@ export default function LegalPageShell({
           <div className="space-y-14">{children}</div>
 
           <p className="font-body mt-20 border-t border-white/10 pt-8 text-[0.85rem] leading-[1.6] text-white/45 italic">
-            This document is provided as-is. It is not legal advice — consult
+            This document is provided as-is. It is not legal advice; consult
             a qualified lawyer in your jurisdiction before relying on it.
           </p>
         </div>

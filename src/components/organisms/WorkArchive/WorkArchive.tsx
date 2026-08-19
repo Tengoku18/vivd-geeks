@@ -360,7 +360,7 @@ export default function WorkArchive() {
               <span className="bg-accent relative inline-flex h-2 w-2 rounded-full" />
             </span>
             <span className="font-body text-[0.65rem] tracking-[0.3em] uppercase text-white/55 md:text-[0.7rem]">
-              Selected Work · {oldestYear} — {newestYear}
+              Selected Work · {oldestYear} to {newestYear}
             </span>
           </div>
 
@@ -378,7 +378,7 @@ export default function WorkArchive() {
             className="font-body max-w-2xl text-base leading-[1.65] text-white/70 md:text-lg md:leading-[1.7]"
           >
             A working archive of the brands, products, and platforms we’ve
-            shipped — each one measured in outcomes, not deliverables.
+            shipped, each one measured in outcomes, not deliverables.
             Commerce, hospitality, B2B, and consumer.
           </p>
 

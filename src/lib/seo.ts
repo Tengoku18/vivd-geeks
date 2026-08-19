@@ -5,9 +5,9 @@
 export const SITE_URL = "https://vividgeeksdigital.com.au";
 export const SITE_NAME = "Vivid Geeks Digital";
 export const SITE_TITLE =
-  "Vivid Geeks Digital — SEO, Paid Media, Creative & Growth Systems";
+  "Vivid Geeks Digital | SEO, Paid Media, Creative & Growth Systems";
 export const SITE_DESCRIPTION =
-  "Vivid Geeks Digital is a Sydney-based digital agency that builds systems turning clicks into revenue — SEO, AEO, paid media, creative, web, CRM and retention under one roof.";
+  "Vivid Geeks Digital is a Sydney-based digital agency that builds systems turning clicks into revenue: SEO, AEO, paid media, creative, web, CRM and retention under one roof.";
 export const SITE_KEYWORDS = [
   "digital marketing agency Sydney",
   "SEO agency Sydney",
@@ -272,7 +272,7 @@ export function serviceCatalogSchema(
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
     "@id": `${SITE_URL}/#service-catalog`,
-    name: "Vivid Geeks — Service Catalog",
+    name: "Vivid Geeks Service Catalog",
     itemListElement: services.map((s) => ({
       "@type": "Offer",
       itemOffered: { "@id": `${SITE_URL}/#service-${s.slug}` },

@@ -61,8 +61,19 @@ export default function HeroSection({ config }: Props) {
         {/* Display heading — each line staggers in. The right-side visual
             panel is currently disabled, so the column runs wide enough for
             the typed phrase to land on a single line on large screens —
-            keeping the headline to two lines whenever the phrase fits. */}
-        <Typography variant="display" as="h1" className="flex w-full min-w-0 flex-col wrap-break-word hyphens-auto">
+            keeping the headline to two lines whenever the phrase fits.
+
+            Below sm the display variant's own clamp bottoms out at 3.25rem,
+            which is too wide for the longest typed phrase and pushes the
+            headline to three lines. max-sm shrinks it so the phrase fits on
+            one line. The `!` is required: cn() only joins classes (no
+            tailwind-merge), so the variant's text-[clamp(3.25rem,12vw,8rem)]
+            is still in the class list and would otherwise win. */}
+        <Typography
+          variant="display"
+          as="h1"
+          className="flex w-full min-w-0 flex-col wrap-break-word hyphens-auto max-sm:text-[clamp(1.75rem,9.5vw,3.25rem)]!"
+        >
           {config.heading.map((line, i) => (
             <span
               key={i}
@@ -76,10 +87,13 @@ export default function HeroSection({ config }: Props) {
             </span>
           ))}
           {/* Typewriter handles its own appearance — just delay its container.
-              min-h reserves a single line on large (less below) so the layout
-              doesn't jump as phrases of different length type out. */}
+              min-h reserves the number of lines the phrase actually occupies at
+              that breakpoint so the layout doesn't jump as phrases of different
+              length type out: one line on phones (the heading is scaled down so
+              the longest phrase fits, keeping the headline to two lines total)
+              and on large screens, two in between. */}
           <span
-            className="block min-w-0 wrap-break-word min-h-[2.4em] lg:min-h-[1.25em]"
+            className="block min-h-[1.25em] min-w-0 wrap-break-word sm:min-h-[2.4em] lg:min-h-[1.25em]"
             style={{ animation: ENTER, animationDelay: `${0.85 + config.heading.length * 0.12}s` }}
           >
             <Typewriter phrases={config.typewriterPhrases} />

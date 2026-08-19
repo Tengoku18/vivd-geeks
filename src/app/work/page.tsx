@@ -12,9 +12,9 @@ import {
   webPageSchema,
 } from "@/lib/seo";
 
-const TITLE = "Work — Case Studies & Client Outcomes";
+const TITLE = "Work | Case Studies & Client Outcomes";
 const DESCRIPTION =
-  "Selected case studies from Vivid Geeks — SEO, paid media, brand identity, web builds, and growth systems with measured outcomes from the engagement ledger.";
+  "Selected case studies from Vivid Geeks: SEO, paid media, brand identity, web builds, and growth systems with measured outcomes from the engagement ledger.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -37,7 +37,7 @@ export default function WorkPage() {
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Vivid Geeks — Selected Work",
+    name: "Vivid Geeks | Selected Work",
     itemListElement: WORK_PROJECTS.map((p, i) => ({
       "@type": "ListItem",
       position: i + 1,

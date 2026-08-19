@@ -44,7 +44,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   if (!post) return {};
-  const title = `${post.title} — Vivid Geeks`;
+  const title = `${post.title} | Vivid Geeks`;
   const url = `/resources/${post.slug}`;
   return {
     title,
@@ -86,7 +86,7 @@ export default async function ResourceArticlePage({
         data={[
           webPageSchema({
             url: `/resources/${post.slug}`,
-            name: `${post.title} — Vivid Geeks`,
+            name: `${post.title} | Vivid Geeks`,
             description: post.excerpt,
             speakableSelectors: ["[data-speakable]", "h1", "h2"],
             datePublished: post.date,

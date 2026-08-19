@@ -338,7 +338,7 @@ export default function ContactSection({ config }: Props) {
                 status === "error" ? "text-red-400 opacity-100" : "opacity-0",
               )}
             >
-              Something went wrong — please try again.
+              Something went wrong. Please try again.
             </p>
           </div>
         </form>

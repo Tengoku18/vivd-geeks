@@ -69,7 +69,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = WORK_PROJECTS.find((p) => p.slug === slug);
   if (!project) return {};
-  const title = `${project.title} — ${project.discipline}`;
+  const title = `${project.title} | ${project.discipline}`;
   const description = project.summary;
   const url = `/work/${project.slug}`;
   const ogImage = project.coverImage ?? `${SITE_URL}/opengraph-image.jpeg`;
@@ -112,7 +112,7 @@ export default async function CaseStudyPage({
         data={[
           webPageSchema({
             url: `/work/${project.slug}`,
-            name: `${project.title} — ${project.discipline}`,
+            name: `${project.title}: ${project.discipline}`,
             description: project.summary,
             primaryImage: project.coverImage,
             datePublished: `${project.year}-01-01`,
@@ -130,7 +130,7 @@ export default async function CaseStudyPage({
             { name: project.title, url: `/work/${project.slug}` },
           ]),
           articleSchema({
-            headline: `${project.title} — ${project.discipline}`,
+            headline: `${project.title}: ${project.discipline}`,
             description: project.summary,
             url: `/work/${project.slug}`,
             image: project.coverImage,
@@ -372,7 +372,7 @@ export default async function CaseStudyPage({
                             {project.tagline}.
                           </p>
                           <footer className="font-body mt-6 text-[0.6rem] tracking-[0.35em] uppercase text-white/45 md:text-[0.65rem]">
-                            — {project.client}
+                            {project.client}
                           </footer>
                         </blockquote>
                       )}
@@ -412,7 +412,7 @@ export default async function CaseStudyPage({
               <p
                 className="font-body max-w-sm text-[0.85rem] leading-[1.6] text-white/55 md:text-sm"
               >
-                Numbers from the engagement ledger — not a pitch deck.
+                Numbers from the engagement ledger, not a pitch deck.
               </p>
             </div>
 

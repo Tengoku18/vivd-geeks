@@ -66,7 +66,7 @@ function buildLlmsFullTxt(): string {
   lines.push("## Case studies");
   lines.push("");
   for (const p of WORK_PROJECTS) {
-    lines.push(`### ${p.title} — ${p.discipline}`);
+    lines.push(`### ${p.title}: ${p.discipline}`);
     lines.push("");
     lines.push(`URL: ${SITE_URL}/work/${p.slug}`);
     lines.push(`Client: ${p.client}`);
@@ -92,7 +92,7 @@ function buildLlmsFullTxt(): string {
   for (const t of TESTIMONIALS_CONFIG.items) {
     lines.push(`> ${t.quote}`);
     lines.push("");
-    lines.push(`— ${t.author}, ${t.role}${t.metric ? ` (${t.metric})` : ""}`);
+    lines.push(`${t.author}, ${t.role}${t.metric ? ` (${t.metric})` : ""}`);
     lines.push("");
   }
 

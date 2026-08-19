@@ -47,7 +47,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const cat = SERVICE_CATEGORIES.find((c) => c.slug === slug);
   if (!cat) return {};
-  const title = `${cat.category} — Vivid Geeks`;
+  const title = `${cat.category} | Vivid Geeks`;
   const url = `/services/${cat.slug}`;
   return {
     title,
@@ -89,7 +89,7 @@ export default async function ServiceCategoryPage({
         data={[
           webPageSchema({
             url: `/services/${cat.slug}`,
-            name: `${cat.category} — Vivid Geeks`,
+            name: `${cat.category} | Vivid Geeks`,
             description: cat.tagline,
             speakableSelectors: ["[data-speakable]", "h1", "h2"],
             breadcrumb: [

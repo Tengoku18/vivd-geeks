@@ -251,7 +251,7 @@ export const HERO_CONFIG: HeroConfig = {
     "Data Into Dominance.",
   ],
   tagline:
-    "We don't manage your digital presence — we architect your market dominance.",
+    "We don't manage your digital presence; we architect your market dominance.",
 };
 
 export const MARQUEE_CONFIG: MarqueeConfig = {
@@ -282,11 +282,11 @@ export interface TestimonialsConfig {
 export const TESTIMONIALS_CONFIG: TestimonialsConfig = {
   label: "007 / Testimonials",
   heading: "Operators Who Scaled With Us",
-  body: "We don't sell impressions — we engineer outcomes. Here's what the operators behind the numbers have to say.",
+  body: "We don't sell impressions; we engineer outcomes. Here's what the operators behind the numbers have to say.",
   items: [
     {
       quote:
-        "Vivid Geeks didn't just bring us leads — they engineered a pipeline that compounds. Our cost-per-acquisition dropped before our retainer was three months old.",
+        "Vivid Geeks didn't just bring us leads; they engineered a pipeline that compounds. Our cost-per-acquisition dropped before our retainer was three months old.",
       metric: "−38% CPA in 90 days",
       author: "Marcus Halloway",
       role: "Head of Growth, Northwave Capital",
@@ -300,14 +300,14 @@ export const TESTIMONIALS_CONFIG: TestimonialsConfig = {
     },
     {
       quote:
-        "Most agencies sell impressions. These guys sell outcomes. Our paid spend is profitable on the first click — that wasn't possible six months ago.",
+        "Most agencies sell impressions. These guys sell outcomes. Our paid spend is profitable on the first click, and that wasn't possible six months ago.",
       metric: "3.4× ROAS",
       author: "Daniel Reyes",
       role: "CMO, Evergreen Property Group",
     },
     {
       quote:
-        "The brand identity work alone repositioned us in the market. We're now the firm clients ask for by name — and the inbound proves it.",
+        "The brand identity work alone repositioned us in the market. We're now the firm clients ask for by name, and the inbound proves it.",
       metric: "+72% inbound leads",
       author: "Lina Costa",
       role: "Director, Atlas Legal Advisory",
@@ -383,7 +383,7 @@ export interface FaqConfig {
 export const FAQ_CONFIG: FaqConfig = {
   label: "009 / FAQ",
   heading: "Questions, Answered",
-  body: "The short version of what most prospective clients ask us before the first call. Still curious? Use the form above — we reply within a business day.",
+  body: "The short version of what most prospective clients ask us before the first call. Still curious? Use the form above; we reply within a business day.",
   items: [
     {
       question: "What does a typical engagement look like?",
@@ -398,12 +398,12 @@ export const FAQ_CONFIG: FaqConfig = {
     {
       question: "Can you take over an existing ad account or site?",
       answer:
-        "Yes — most clients come to us with live accounts and a history of spend. We audit, preserve the learning, and rebuild the layers that are hurting performance before we push anything new.",
+        "Yes. Most clients come to us with live accounts and a history of spend. We audit, preserve the learning, and rebuild the layers that are hurting performance before we push anything new.",
     },
     {
       question: "Do you offer one-off projects?",
       answer:
-        "For brand identity, site builds, or a single campaign — yes. For anything that needs to compound (SEO, paid, CRO), no. We only accept work we can meaningfully move the needle on.",
+        "For brand identity, site builds, or a single campaign, yes. For anything that needs to compound (SEO, paid, CRO), no. We only accept work we can meaningfully move the needle on.",
     },
     {
       question: "Who owns the work when we finish?",

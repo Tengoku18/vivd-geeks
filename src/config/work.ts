@@ -127,7 +127,7 @@ export const WORK_PROJECTS: WorkProject[] = [
     summary:
       "A weekly creative sprint that shipped 40+ hooks per month and turned Meta into their cheapest channel.",
     body: [
-      "Saltwater's first-party margins were healthy, but their creative cycle was slow — two ads a week, shot once a quarter, and fatigued fast.",
+      "Saltwater's first-party margins were healthy, but their creative cycle was slow: two ads a week, shot once a quarter, and fatigued fast.",
       "We embedded a two-person creative cell with their brand team and moved them to a weekly testing rhythm: 10 hooks, 4 edits, 2 winners.",
       "CPA on Meta dropped 44% in the first quarter and the cell has shipped every Friday since.",
     ],
@@ -153,7 +153,7 @@ export const WORK_PROJECTS: WorkProject[] = [
     summary:
       "Long-form case studies, a custom CMS, and a brand system built for ten years of work, not one launch.",
     body: [
-      "Field & Form wanted a portfolio that read like their pitch deck — quiet, confident, hero-image heavy, and easy to update without a developer.",
+      "Field & Form wanted a portfolio that read like their pitch deck: quiet, confident, hero-image heavy, and easy to update without a developer.",
       "We shipped a Sanity-backed Next.js site with reusable editorial blocks, and a brand system built around a single variable font.",
       "Three of their five biggest inbound projects since launch have cited a specific case study by name.",
     ],

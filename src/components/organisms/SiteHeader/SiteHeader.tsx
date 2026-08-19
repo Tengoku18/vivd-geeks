@@ -134,7 +134,7 @@ export default function SiteHeader() {
             >
               <Image
                 src="/logo/black/darkmode-horizontal.png"
-                alt="Vivid Geeks Digital — digital agency"
+                alt="Vivid Geeks Digital, digital agency"
                 width={200}
                 height={50}
                 className="h-11 w-auto md:h-14"
@@ -521,7 +521,7 @@ export default function SiteHeader() {
               Booking now
             </p>
             <p className="font-body mt-2 text-sm text-white/70">
-              {availability.labelShort.replace("'", "’")} — taking{" "}
+              {availability.labelShort.replace("'", "’")}, taking{" "}
               {availability.slotsWord} more engagements.
             </p>
             <a

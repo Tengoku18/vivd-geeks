@@ -14,11 +14,11 @@ export async function POST(req: Request) {
     from: "Vivid Geeks Contact <no-reply@resend.vividgeeksdigital.com.au>",
     to: "info.vividgeeks@gmail.com",
     replyTo: email,
-    subject: `New enquiry from ${name} — ${service}`,
+    subject: `New enquiry from ${name}: ${service}`,
     text: [
       `Name: ${name}`,
       `Email: ${email}`,
-      `Phone: ${phone || "—"}`,
+      `Phone: ${phone || "Not provided"}`,
       `Service: ${service}`,
       ``,
       `Message:`,

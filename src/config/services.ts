@@ -50,10 +50,10 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
     label: "001 / Search & Intelligence",
     headline: "Own The Moment Your Customer Is Looking For A Solution",
     tagline:
-      "From search engines to answer engines. Search has evolved — customers don't just type into a bar, they're asking ChatGPT, Gemini and Siri for recommendations. Our strategy ensures that when they ask, your brand is the answer they receive.",
+      "From search engines to answer engines. Search has evolved. Customers don't just type into a bar, they're asking ChatGPT, Gemini and Siri for recommendations. Our strategy ensures that when they ask, your brand is the answer they receive.",
     heroImage: "/assets/seo-header.avif",
     heroImageAlt:
-      "Search & Intelligence — editorial header artwork",
+      "Search & Intelligence editorial header artwork",
     details: [
       {
         name: "Strategic SEO",
@@ -64,7 +64,7 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
         body: [
           "We do in-depth keyword and competitor research, technical audits, on-page optimization, structured data implementation, content optimization, internal linking strategies, mobile performance improvements, Core Web Vitals optimization and local SEO enhancements to strengthen your digital presence and ranking.",
           "We help create search-focused website structures that improve crawlability and indexing while ensuring your content aligns with search intent and modern ranking algorithms. By building topical authority and publishing high quality, helpful content, we have helped brands across the globe establish themselves as trusted industry leaders that search engines prioritize.",
-          "SEO is not just about rankings — it is about attracting the right audience, increasing visibility, improving engagement and generating qualified leads consistently over time. Whether you are a local business looking to dominate regional searches or an enterprise brand aiming for national or international reach, our SEO strategies are tailored to deliver measurable growth, stronger online authority and sustainable digital success.",
+          "SEO is not just about rankings; it is about attracting the right audience, increasing visibility, improving engagement and generating qualified leads consistently over time. Whether you are a local business looking to dominate regional searches or an enterprise brand aiming for national or international reach, our SEO strategies are tailored to deliver measurable growth, stronger online authority and sustainable digital success.",
         ],
         lists: [
           {
@@ -97,7 +97,7 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
         slug: "aeo",
         headline: "Become The Recommended Answer In AI & Voice Search",
         intro:
-          "Search is evolving. Customers no longer just type into Google; they're asking AI assistants and voice search devices for direct recommendations. Someone might ask, “What's the best accounting software for small businesses?” or “Which IT company in Melbourne handles enterprise cloud migration?” In many cases, users never even scroll through traditional search results anymore. That shift is where AEO — Answer Engine Optimization — starts to matter.",
+          "Search is evolving. Customers no longer just type into Google; they're asking AI assistants and voice search devices for direct recommendations. Someone might ask, “What's the best accounting software for small businesses?” or “Which IT company in Melbourne handles enterprise cloud migration?” In many cases, users never even scroll through traditional search results anymore. That shift is where AEO (Answer Engine Optimization) starts to matter.",
         body: [
           "At Vivid Geeks, our team designs AEO strategies to help position your brand as the trusted answer across AI-powered search platforms, voice assistants and next-generation search experiences. We help optimize your content structure, schema markup, FAQs and topical authority so your business becomes the preferred answer when people ask questions related to your industry.",
           "The idea behind AEO is fairly straightforward: structure your website and content in a way that makes AI systems more likely to understand, trust and reference your business when generating answers. That may involve improving semantic relevance, organizing information clearly, implementing schema markup, building authority around specific topics and creating content that directly answers real customer questions in natural language.",
@@ -134,10 +134,10 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
         slug: "google-ads",
         headline: "Reach Ready-To-Buy Customers Instantly",
         intro:
-          "At Vivid Geeks, we create high-performing ad campaigns focused on generating leads, calls, sales and measurable ROI — not wasted clicks. When customers are actively searching for your product or service, Google Ads puts your business directly in front of them at the perfect moment.",
+          "At Vivid Geeks, we create high-performing ad campaigns focused on generating leads, calls, sales and measurable ROI, not wasted clicks. When customers are actively searching for your product or service, Google Ads puts your business directly in front of them at the perfect moment.",
         body: [
           "SEO builds momentum over time, but sometimes businesses need visibility immediately. That's usually where Google Ads becomes valuable. If someone searches “emergency plumber near me” or “cybersecurity consultant for healthcare company,” they're often ready to take action right away. Appearing in front of those users at the right moment can generate leads surprisingly fast when campaigns are managed properly.",
-          "Our Google Ads strategy focuses less on simply increasing clicks and more on attracting the kind of traffic that's actually likely to convert. If no visitors contact your business, the numbers don't mean much — a campaign with thousands of cheap clicks may look impressive only in reports. So before scaling campaigns, we spend time understanding search intent, customer behavior, competitor positioning and conversion patterns to help you improve your response rate.",
+          "Our Google Ads strategy focuses less on simply increasing clicks and more on attracting the kind of traffic that's actually likely to convert. If no visitors contact your business, the numbers don't mean much; a campaign with thousands of cheap clicks may look impressive only in reports. So before scaling campaigns, we spend time understanding search intent, customer behavior, competitor positioning and conversion patterns to help you improve your response rate.",
           "That process usually includes keyword research, audience targeting, landing page recommendations, ad copy testing, conversion tracking and ongoing bid optimization. Sometimes small adjustments like changing headline wording or simplifying a contact form can improve performance. We've seen campaigns reduce cost-per-lead significantly just by improving the landing page experience rather than increasing ad spend.",
           "There's also a balance to maintain. Paid advertising can drive fast growth but relying entirely on ads may become expensive over time, especially in competitive industries where click costs keep rising. That's why we often see the strongest results when Google Ads works alongside SEO rather than replacing it. One generates immediate visibility; the other builds long-term authority and sustainable traffic.",
           "Google Ads can be incredibly effective, though it's not a “set and forget” channel. Campaigns need continuous monitoring, testing and refinement because customer behavior changes constantly. What worked six months ago may already be underperforming today. The businesses that usually get the best results are the ones willing to adapt, test new approaches, and pay attention to the actual data instead of vanity metrics.",
@@ -178,7 +178,7 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
       "We at Vivid Geeks don't believe in \"brand awareness\" without a bank statement to back it up. We build data-driven performance engines that treat every dollar of your ad spend like an investment, not an expense.",
     heroImage: "/assets/growth-performancs.avif",
     heroImageAlt:
-      "Growth & Performance — editorial header artwork",
+      "Growth & Performance editorial header artwork",
     details: [
       {
         name: "Performance Marketing",
@@ -187,9 +187,9 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
         intro:
           "Performance marketing has become one of the most important growth channels for modern businesses because it ties marketing activity directly to measurable outcomes. In simple terms, businesses want to know: \"What are we getting back for every dollar we spend?\" That question sounds obvious, yet many companies still struggle to answer it clearly.",
         body: [
-          "Every campaign we launch is built around one goal — profitable growth. At Vivid Geeks, our performance marketing strategies ensure every marketing dollar works harder for your business through combined analytics, paid advertising, audience targeting and conversion optimization across the whole globe.",
+          "Every campaign we launch is built around one goal: profitable growth. At Vivid Geeks, our performance marketing strategies ensure every marketing dollar works harder for your business through combined analytics, paid advertising, audience targeting and conversion optimization across the whole globe.",
           "We also focus heavily on tracking and attribution. Optimization becomes far more difficult when businesses run campaigns without accurate conversion tracking in place. Scaling becomes largely guesswork if you cannot clearly identify where leads are coming from or which campaigns are generating revenue.",
-          "For businesses looking to grow across the global network, our performance marketing here at Vivid Geeks offers something increasingly valuable — accountability. Every campaign decision can be measured, analyzed, refined, and connected back to business outcomes.",
+          "For businesses looking to grow across the global network, our performance marketing here at Vivid Geeks offers something increasingly valuable: accountability. Every campaign decision can be measured, analyzed, refined, and connected back to business outcomes.",
         ],
         lists: [
           {
@@ -221,7 +221,7 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
         intro:
           "Not every customer begins their journey on Google. In many cases, people discover products, services and brands while scrolling through Instagram or Facebook long before they actively search for solutions. That's what makes Meta Ads such a powerful part of modern digital marketing.",
         body: [
-          "Platforms like Facebook and Instagram remain highly effective because they allow businesses to reach audiences based on interests, behaviours, demographics, engagement patterns and intent signals — often before competitors even enter the conversation.",
+          "Platforms like Facebook and Instagram remain highly effective because they allow businesses to reach audiences based on interests, behaviours, demographics, engagement patterns and intent signals, often before competitors even enter the conversation.",
           "We at Vivid Geeks create scroll-stopping ad campaigns that capture attention, build interest and drive conversions. We help brands maximize visibility and sales through Meta's advertising ecosystem, from creative development to audience targeting and retargeting.",
           "Meta advertising works particularly well for businesses focused on brand awareness, lead generation, eCommerce sales, event promotion, and service-based customer acquisition. Combined with SEO and Google Ads, it creates a broader visibility strategy that reaches customers across multiple stages of the buying journey.",
         ],
@@ -254,9 +254,9 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
         slug: "lead-generation",
         headline: "Build A Predictable Pipeline Of Qualified Leads",
         intro:
-          "For many businesses, the biggest challenge is not visibility alone — it's consistency. Generating random traffic isn't enough; you need qualified prospects who are genuinely interested in your services. Some months generate strong enquiry volumes. Other months slow down unexpectedly. Relying entirely on referrals, repeat customers or unpredictable traffic sources can make long-term growth difficult to forecast. That's why structured lead generation systems matter.",
+          "For many businesses, the biggest challenge is not visibility alone; it's consistency. Generating random traffic isn't enough; you need qualified prospects who are genuinely interested in your services. Some months generate strong enquiry volumes. Other months slow down unexpectedly. Relying entirely on referrals, repeat customers or unpredictable traffic sources can make long-term growth difficult to forecast. That's why structured lead generation systems matter.",
         body: [
-          "At Vivid Geeks, our lead generation systems combine optimized funnels, landing page optimization, paid advertising, SEO-driven traffic, audience targeting, targeted campaigns and conversion-focused strategies — all designed to attract, capture and nurture potential customers.",
+          "At Vivid Geeks, our lead generation systems combine optimized funnels, landing page optimization, paid advertising, SEO-driven traffic, audience targeting, targeted campaigns and conversion-focused strategies, all designed to attract, capture and nurture potential customers.",
           "Every stage is designed to reduce friction and improve conversion quality through automated follow-up strategies and remarketing campaigns.",
           "The businesses that tend to grow most consistently are usually the ones with predictable acquisition systems in place. Instead of relying purely on luck, referrals, or seasonal demand spikes, they create structured marketing pipelines that continuously generate opportunities.",
         ],
@@ -291,21 +291,21 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
     label: "003 / Creative & Brand",
     headline: "Stop Blending In. Start Leading.",
     tagline:
-      "In a world of digital clones, authenticity is your greatest competitive advantage. We don't just design \"assets\" — we build the visual and narrative authority that makes your competition irrelevant across the globe.",
+      "In a world of digital clones, authenticity is your greatest competitive advantage. We don't just design \"assets\"; we build the visual and narrative authority that makes your competition irrelevant across the globe.",
     heroImage: "/assets/creative-brand.avif",
     heroImageAlt:
-      "Creative & Brand Identity — editorial header artwork",
+      "Creative & Brand Identity editorial header artwork",
     details: [
       {
         name: "Logo & Graphic Design",
         slug: "logo-graphic-design",
         headline: "Build A Brand That Looks As Powerful As It Performs",
         intro:
-          "A logo is often treated like a finishing touch, but in reality it's usually the first real signal people use to judge a business. Fair or not, people do make quick assumptions based on visual identity. That said, there's also a bit of misunderstanding in the industry here — a logo doesn't need to be overly complex or \"clever\" to work well. In fact, overly complicated designs often age poorly or feel disconnected from the actual business over time. Strong branding creates trust, recognition and credibility.",
+          "A logo is often treated like a finishing touch, but in reality it's usually the first real signal people use to judge a business. Fair or not, people do make quick assumptions based on visual identity. That said, there's also a bit of misunderstanding in the industry here: a logo doesn't need to be overly complex or \"clever\" to work well. In fact, overly complicated designs often age poorly or feel disconnected from the actual business over time. Strong branding creates trust, recognition and credibility.",
         body: [
           "We at Vivid Geeks help design premium visual identities that help businesses stand out in competitive markets and leave lasting impressions.",
           "We've seen cases where businesses initially invested in visually striking designs that looked impressive in isolation but didn't translate well across websites, ads or mobile screens. That's usually where practicality matters more than creativity for its own sake.",
-          "So our goal isn't just to \"design something premium.\" It's to build a visual system that actually works across real-world usage — websites, social media, pitch decks, ads, and everything in between — without losing consistency.",
+          "So our goal isn't just to \"design something premium.\" It's to build a visual system that actually works across real-world usage (websites, social media, pitch decks, ads, and everything in between) without losing consistency.",
         ],
         lists: [
           {
@@ -335,7 +335,7 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
         slug: "video-editing",
         headline: "Storytelling That Captures Attention And Drives Action",
         intro:
-          "Video is one of those areas where reality often doesn't match the desired expectations. On one hand, attention spans are shorter than ever. People scroll quickly. Most videos get evaluated within the first few seconds. And even when something does manage to hold attention, it's often because there's a clear story or emotional hook — not necessarily because the production is highly polished.",
+          "Video is one of those areas where reality often doesn't match the desired expectations. On one hand, attention spans are shorter than ever. People scroll quickly. Most videos get evaluated within the first few seconds. And even when something does manage to hold attention, it's often because there's a clear story or emotional hook, not necessarily because the production is highly polished.",
         body: [
           "Our team at Vivid Geeks creates engaging, professionally edited video content that helps brands communicate clearly and connect emotionally with audiences. We usually focus on making videos that feel intentional but not overproduced. The aim is to hold attention long enough for the message to land, not to impress viewers with production complexity alone.",
           "And when it works, video becomes more than just content. It starts shaping perception. A well-told story can make a relatively unknown business feel far more established than it actually is.",
@@ -405,21 +405,21 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
     headline:
       "The Digital Foundation That Turns Traffic Into Revenue And Never Sleeps",
     tagline:
-      "Your website is your hardest-working salesperson — or at least, it should be. We build high-speed, high-conversion infrastructures that don't just look premium but turn casual visitors into loyal customers through automated sales funnels.",
+      "Your website is your hardest-working salesperson, or at least it should be. We build high-speed, high-conversion infrastructures that don't just look premium but turn casual visitors into loyal customers through automated sales funnels.",
     heroImage: "/assets/digital-infrastructure.avif",
     heroImageAlt:
-      "Digital Infrastructure — editorial header artwork",
+      "Digital Infrastructure editorial header artwork",
     details: [
       {
         name: "Web Design & Development",
         slug: "web-design-development",
         headline: "A Website Built To Convert Visitors Into Customers",
         intro:
-          "There's a common phrase people still use — \"we just need a website.\" But that framing is a bit outdated now, especially in today's competitive markets. A website isn't just a digital brochure anymore. In most cases, it's the first real interaction a potential customer has with your business — and sometimes, it's also the last.",
+          "There's a common phrase people still use: \"we just need a website.\" But that framing is a bit outdated now, especially in today's competitive markets. A website isn't just a digital brochure anymore. In most cases, it's the first real interaction a potential customer has with your business, and sometimes it's also the last.",
         body: [
-          "If it loads slowly, feels confusing, or doesn't clearly communicate value within a few seconds, users don't usually stick around to \"figure it out.\" They just leave — quietly. No complaint, no feedback, just a lost opportunity.",
-          "That's why we approach web design more like building a conversion environment rather than a visual project. Your website is your digital storefront — first impressions matter the most. We design and develop modern, responsive, and conversion-focused websites that combine aesthetics with performance.",
-          "When we talk about web design at Vivid Geeks, it's less about \"how it looks\" and more about how it behaves under real conditions. A good site doesn't just represent your business — it actively supports it.",
+          "If it loads slowly, feels confusing, or doesn't clearly communicate value within a few seconds, users don't usually stick around to \"figure it out.\" They just leave, quietly. No complaint, no feedback, just a lost opportunity.",
+          "That's why we approach web design more like building a conversion environment rather than a visual project. Your website is your digital storefront; first impressions matter the most. We design and develop modern, responsive, and conversion-focused websites that combine aesthetics with performance.",
+          "When we talk about web design at Vivid Geeks, it's less about \"how it looks\" and more about how it behaves under real conditions. A good site doesn't just represent your business; it actively supports it.",
         ],
         lists: [
           {
@@ -450,9 +450,9 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
         slug: "crm-sales-funnels",
         headline: "Automate Your Sales Process And Scale Smarter",
         intro:
-          "Most businesses don't struggle with generating interest — they struggle with what happens after. Someone fills out a form, downloads something, or clicks an ad… and then the follow-up process becomes inconsistent. Sometimes they get a reply quickly, sometimes hours later, sometimes not at all. And in many cases, there's no clear system tracking where that lead goes next.",
+          "Most businesses don't struggle with generating interest; they struggle with what happens after. Someone fills out a form, downloads something, or clicks an ad… and then the follow-up process becomes inconsistent. Sometimes they get a reply quickly, sometimes hours later, sometimes not at all. And in many cases, there's no clear system tracking where that lead goes next.",
         body: [
-          "That's usually where a CRM (Customer Relationship Management system) and structured sales funnel come in. A good CRM and funnel system should quietly support the sales process rather than dominate it. It should help teams respond faster, stay organised, and prioritise better opportunities — not replace thoughtful communication.",
+          "That's usually where a CRM (Customer Relationship Management system) and structured sales funnel come in. A good CRM and funnel system should quietly support the sales process rather than dominate it. It should help teams respond faster, stay organised, and prioritise better opportunities, not replace thoughtful communication.",
           "Here at Vivid Geeks, we help businesses capture leads, track customer interactions through streamlined CRM systems and automated sales funnels built by our team, and close more deals efficiently.",
         ],
         lists: [
@@ -486,10 +486,10 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
     label: "005 / Engagement & Retention",
     headline: "Don't Just Find Customers. Keep Them. The Loyalty Loop.",
     tagline:
-      "The most expensive part of any business is acquiring a new customer. The most profitable part is keeping one. We move your brand beyond the \"one-off transaction\" and into the Loyalty Loop — combining direct-to-inbox storytelling with active community management so your brand stays top-of-mind and casual buyers become vocal advocates who drive repeat sales and massive lifetime value.",
+      "The most expensive part of any business is acquiring a new customer. The most profitable part is keeping one. We move your brand beyond the \"one-off transaction\" and into the Loyalty Loop, combining direct-to-inbox storytelling with active community management so your brand stays top-of-mind and casual buyers become vocal advocates who drive repeat sales and massive lifetime value.",
     heroImage: "/assets/engagement.avif",
     heroImageAlt:
-      "Engagement & Retention — editorial header artwork",
+      "Engagement & Retention editorial header artwork",
     details: [
       {
         name: "Email Marketing",
@@ -498,7 +498,7 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
         intro:
           "Email is one of those channels that never really \"dies,\" even though people keep predicting it will. In reality, it remains one of the most direct and controllable ways to communicate with your audience. To this day, email is one of the highest-ROI marketing channels available.",
         body: [
-          "Unlike social media, where algorithms decide who sees your content, email gives you a more stable line of communication — assuming people have actually opted in and want to hear from you. That's an important detail. Email only works when there's trust. Otherwise it just becomes noise in an already crowded inbox.",
+          "Unlike social media, where algorithms decide who sees your content, email gives you a more stable line of communication, assuming people have actually opted in and want to hear from you. That's an important detail. Email only works when there's trust. Otherwise it just becomes noise in an already crowded inbox.",
           "Email marketing, when done well, tends to quietly increase customer lifetime value without requiring constant ad spend. That alone makes it one of the more efficient channels in a long-term growth strategy.",
           "We at Vivid Geeks help create strategic email campaigns that nurture relationships, increase repeat purchases, and strengthen customer loyalty.",
         ],
@@ -533,7 +533,7 @@ export const SERVICE_CATEGORIES: ServiceCategoryContent[] = [
           "Social media is a slightly different challenge. It's fast, crowded, and constantly shifting. One day a format works well, the next it feels like it barely reaches anyone. Algorithms change, audience behaviour shifts, and attention spans… well, they're not exactly getting longer.",
         body: [
           "So the goal of social media management isn't just to \"post content.\" That usually leads to inconsistency or burnout over time. The real objective is to maintain presence in a way that feels natural, consistent, and recognisable.",
-          "Managing social media consistently takes time and strategy — but businesses don't have to worry any more. Here at Vivid Geeks, we handle your content, engagement and platform growth so you can focus on running your business.",
+          "Managing social media consistently takes time and strategy, but businesses don't have to worry any more. Here at Vivid Geeks, we handle your content, engagement and platform growth so you can focus on running your business.",
           "Social media management can become overwhelming for businesses trying to handle everything internally. Platforms move quickly, content demands are constant, and it's easy for posting to become inconsistent when other priorities take over. That's where we come in. Our structured management helps not just with posting content, but with maintaining tone, consistency, and timing so the brand presence doesn't drift over time.",
         ],
         lists: [

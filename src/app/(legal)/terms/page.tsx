@@ -6,7 +6,7 @@ import LegalPageShell, {
 import JsonLd from "@/components/atoms/JsonLd/JsonLd";
 import { webPageSchema } from "@/lib/seo";
 
-const TITLE = "Terms of Service — Vivid Geeks";
+const TITLE = "Terms of Service | Vivid Geeks";
 const DESCRIPTION =
   "The terms that govern your use of the Vivid Geeks website and our working relationship.";
 
@@ -94,7 +94,7 @@ export default function TermsPage() {
             Australia cash rate plus 4% per annum.
           </li>
           <li>
-            Third-party costs — ad spend, tooling, licenses — are billed at
+            Third-party costs (ad spend, tooling, licenses) are billed at
             cost with no mark-up.
           </li>
         </ul>
@@ -102,9 +102,9 @@ export default function TermsPage() {
 
       <LegalSection title="5. Intellectual property">
         <p>
-          When you pay for work in full, you own it. Every deliverable — ad
+          When you pay for work in full, you own it. Every deliverable (ad
           accounts, creative assets, source code, documentation, and the
-          infrastructure we set up on your behalf — is assigned to you.
+          infrastructure we set up on your behalf) is assigned to you.
         </p>
         <p>
           We keep ownership of the underlying methodologies, playbooks, and
@@ -116,9 +116,9 @@ export default function TermsPage() {
 
       <LegalSection title="6. Confidentiality">
         <p>
-          Anything you share with us that is not already public — strategy,
-          financials, customer data, product roadmaps — we keep confidential
-          and use only for the purposes of the engagement. This obligation
+          Anything you share with us that is not already public, such as
+          strategy, financials, customer data, and product roadmaps, we keep
+          confidential and use only for the purposes of the engagement. This obligation
           survives termination.
         </p>
       </LegalSection>
@@ -127,7 +127,7 @@ export default function TermsPage() {
         <p>
           We perform our work with the standard of care expected of a
           competent digital agency. We do not, however, guarantee specific
-          business outcomes — growth, conversion rates, rankings, or revenue
+          business outcomes; growth, conversion rates, rankings, and revenue
           all depend on factors beyond any agency&apos;s control.
         </p>
         <p>

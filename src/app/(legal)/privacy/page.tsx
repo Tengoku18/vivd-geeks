@@ -6,7 +6,7 @@ import LegalPageShell, {
 import JsonLd from "@/components/atoms/JsonLd/JsonLd";
 import { webPageSchema } from "@/lib/seo";
 
-const TITLE = "Privacy Policy — Vivid Geeks";
+const TITLE = "Privacy Policy | Vivid Geeks";
 const DESCRIPTION =
   "How Vivid Geeks collects, uses, and protects the information you share with us.";
 
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     url: "/privacy",
-    title: "Privacy Policy — Vivid Geeks",
+    title: "Privacy Policy | Vivid Geeks",
     description:
       "How Vivid Geeks collects, uses, and protects the information you share with us.",
   },
@@ -69,23 +69,23 @@ export default function PrivacyPage() {
           <li>
             <strong className="text-text-on-dark font-normal">
               Contact form submissions
-            </strong>{" "}
-            — your name, email, the service you&apos;re interested in, and the
+            </strong>
+            {": "}your name, email, the service you&apos;re interested in, and the
             details of your brief.
           </li>
           <li>
             <strong className="text-text-on-dark font-normal">
               Intro-call bookings
-            </strong>{" "}
-            — when you schedule a call we use Calendly, which collects your
+            </strong>
+            {": "}when you schedule a call we use Calendly, which collects your
             name, email, time zone, and any notes you add. See Calendly&apos;s
             own privacy policy for their handling.
           </li>
           <li>
             <strong className="text-text-on-dark font-normal">
               Direct correspondence
-            </strong>{" "}
-            — anything you share in email or during a call.
+            </strong>
+            {": "}anything you share in email or during a call.
           </li>
         </ul>
         <p>
@@ -124,19 +124,19 @@ export default function PrivacyPage() {
             <strong className="text-text-on-dark font-normal">
               Calendly
             </strong>
-            {" "}— to schedule intro calls.
+            {": "}to schedule intro calls.
           </li>
           <li>
             <strong className="text-text-on-dark font-normal">
               Email provider
-            </strong>{" "}
-            — to send and receive correspondence.
+            </strong>
+            {": "}to send and receive correspondence.
           </li>
           <li>
             <strong className="text-text-on-dark font-normal">
               Hosting / CDN
-            </strong>{" "}
-            — to deliver this website. Standard server logs (IP, user agent,
+            </strong>
+            {": "}to deliver this website. Standard server logs (IP, user agent,
             request path) are kept briefly for security and diagnostics.
           </li>
         </ul>
@@ -189,7 +189,7 @@ export default function PrivacyPage() {
       <LegalSection title="8. Security">
         <p>
           We use current industry practice to protect the information you
-          share — TLS on all traffic, access-controlled storage, and least-
+          share: TLS on all traffic, access-controlled storage, and least-
           privilege handling. No system is perfect; if we ever become aware
           of a breach that affects you, we will notify you promptly and in
           line with our obligations under Australian law.

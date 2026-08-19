@@ -22,9 +22,9 @@ import {
   webPageSchema,
 } from "@/lib/seo";
 
-const PAGE_TITLE = "Resources — Vivid Geeks";
+const PAGE_TITLE = "Resources | Vivid Geeks";
 const PAGE_DESCRIPTION =
-  "Field notes on search, growth, and digital infrastructure from the Vivid Geeks team — AEO, attribution, conversion-first web, and the systems that turn traffic into revenue.";
+  "Field notes on search, growth, and digital infrastructure from the Vivid Geeks team: AEO, attribution, conversion-first web, and the systems that turn traffic into revenue.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -47,7 +47,7 @@ export default function ResourcesIndexPage() {
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Vivid Geeks — Resources",
+    name: "Vivid Geeks | Resources",
     itemListElement: BLOG_POSTS.map((p, i) => ({
       "@type": "ListItem",
       position: i + 1,
@@ -106,7 +106,7 @@ export default function ResourcesIndexPage() {
             <p className="font-body font-medium max-w-3xl text-lg leading-[1.55] text-white/85 md:text-xl">
               No fluff, no recycled listicles. Just the strategies, hard
               lessons and uncomfortable truths we use to turn clicks into
-              revenue — written by the team doing the work.
+              revenue, written by the team doing the work.
             </p>
           </div>
         </section>

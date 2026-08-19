@@ -29,9 +29,9 @@ import {
 } from "@/lib/seo";
 import { cn } from "@/lib/cn";
 
-const PAGE_TITLE = "Services — Vivid Geeks";
+const PAGE_TITLE = "Services | Vivid Geeks";
 const PAGE_DESCRIPTION =
-  "Growth-driven digital marketing and creative solutions — data-driven marketing plans, powerful creative assets and high-converting digital systems built to generate measurable business growth.";
+  "Growth-driven digital marketing and creative solutions: data-driven marketing plans, powerful creative assets and high-converting digital systems built to generate measurable business growth.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -105,7 +105,7 @@ export default function ServicesIndexPage() {
               We at Vivid Geeks design data-driven marketing plans, powerful
               creative assets and high-converting digital systems to help
               ambitious brands dominate online. Our strategies are built to
-              generate measurable business growth — from search visibility and
+              generate measurable business growth, from search visibility and
               paid advertising to branding, automation, and customer retention.
             </p>
           </div>
