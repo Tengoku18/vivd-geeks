@@ -330,10 +330,10 @@ export default function FooterSection({ config }: Props) {
               {config.tagline}
             </Typography>
             <a
-              href="mailto:hello@vividgeeks.com.au"
+              href="mailto:hello@vividgeeksdigital.com.au"
               className="font-body hover:text-accent w-fit text-sm tracking-[0.2em] text-white/75 uppercase transition-colors"
             >
-              hello@vividgeeks.com.au
+              hello@vividgeeksdigital.com.au
             </a>
           </div>
 
